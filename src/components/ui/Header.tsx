@@ -4,19 +4,27 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { ChevronDown, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "./Button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./DropdownMenu";
 
 interface NavItemProps {
   label: string;
   isActive?: boolean;
   hasDropdown?: boolean;
   highlight?: { text: string; color: string };
+  dropdownItems?: { label: string; href: string }[];
 }
 
-function NavItem({ label, isActive, hasDropdown, highlight }: NavItemProps) {
-  return (
-    <motion.button
+function NavItem({ label, isActive, hasDropdown, highlight, dropdownItems }: NavItemProps) {
+  const triggerContent = (
+    <motion.div
       className={cn(
-        "flex items-center gap-2 px-3 py-2 rounded-lg text-base tracking-tight transition-colors",
+        "flex items-center gap-2 px-3 py-2 rounded-lg text-base tracking-tight transition-colors cursor-pointer",
         isActive
           ? "bg-gray-100 border border-gray-200/20 shadow-sm font-medium text-gray-700"
           : "bg-white text-gray-500 hover:bg-gray-50"
@@ -38,27 +46,82 @@ function NavItem({ label, isActive, hasDropdown, highlight }: NavItemProps) {
           label
         )}
       </span>
-      {hasDropdown && (
-        <ChevronDown className="w-4 h-4 text-gray-400" />
-      )}
-    </motion.button>
+      {hasDropdown && <ChevronDown className="w-4 h-4 text-gray-400" />}
+    </motion.div>
   );
+
+  if (hasDropdown && dropdownItems) {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>{triggerContent}</DropdownMenuTrigger>
+        <DropdownMenuContent align="start">
+          {dropdownItems.map((item) => (
+            <DropdownMenuItem key={item.label}>
+              <a href={item.href} className="w-full">
+                {item.label}
+              </a>
+            </DropdownMenuItem>
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
+
+  return triggerContent;
 }
 
 export default function Header() {
   const [activeNav, setActiveNav] = useState("Residential");
 
   const navItems = [
-    { label: "Residential", hasDropdown: true },
-    { label: "Workplace", hasDropdown: true },
-    { label: "Industrial", hasDropdown: true },
-    { label: "GridScale", hasDropdown: true, highlight: { text: "Grid", color: "#fa0015" } },
-    { label: "Resources", hasDropdown: true },
+    {
+      label: "Residential",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Solar Panels", href: "/residential/solar-panels" },
+        { label: "Battery Storage", href: "/residential/battery-storage" },
+        { label: "EV Charging", href: "/residential/ev-charging" },
+      ],
+    },
+    {
+      label: "Workplace",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Office Solutions", href: "/workplace/office" },
+        { label: "Commercial Solar", href: "/workplace/commercial-solar" },
+      ],
+    },
+    {
+      label: "Industrial",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Large Scale Solar", href: "/industrial/large-scale" },
+        { label: "Energy Management", href: "/industrial/energy-management" },
+      ],
+    },
+    {
+      label: "GridScale",
+      hasDropdown: true,
+      highlight: { text: "Grid", color: "#fa0015" },
+      dropdownItems: [
+        { label: "Utility Solutions", href: "/gridscale/utility" },
+        { label: "Grid Storage", href: "/gridscale/storage" },
+      ],
+    },
+    {
+      label: "Resources",
+      hasDropdown: true,
+      dropdownItems: [
+        { label: "Blog", href: "/resources/blog" },
+        { label: "Case Studies", href: "/resources/case-studies" },
+        { label: "FAQ", href: "/resources/faq" },
+      ],
+    },
   ];
 
   return (
     <motion.header
-      className="bg-white h-16 rounded-lg shadow-sm overflow-hidden relative"
+      className="bg-white h-16 rounded-lg shadow-sm overflow-visible relative"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
@@ -93,6 +156,7 @@ export default function Header() {
                 isActive={activeNav === item.label}
                 hasDropdown={item.hasDropdown}
                 highlight={item.highlight}
+                dropdownItems={item.dropdownItems}
               />
             </div>
           ))}
@@ -100,21 +164,11 @@ export default function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-1">
-          <motion.button
-            className="px-4 py-2 rounded-xl border border-gray-400 bg-gradient-to-b from-gray-100 via-gray-300 to-gray-200 text-gray-700 font-medium text-base shadow-sm"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Login
-          </motion.button>
-          <motion.button
-            className="px-4 py-2 rounded-xl border border-red-700 bg-gradient-to-b from-red-600 via-red-700 to-red-600 text-white font-medium text-base shadow-sm flex items-center gap-2"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
+          <Button variant="secondary">Login</Button>
+          <Button variant="default">
             Contact Us
             <Plus className="w-5 h-5" />
-          </motion.button>
+          </Button>
         </div>
       </div>
     </motion.header>
