@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "motion/react";
 import Image from "next/image";
 
 interface MediaCardProps {
@@ -13,13 +12,7 @@ interface MediaCardProps {
 
 function MediaCard({ type, src, alt, poster, priority }: MediaCardProps) {
   return (
-    <motion.div
-      className="flex-1 min-w-0 h-full bg-white border border-gray-500/30 rounded-lg overflow-hidden shadow-lg relative"
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.4, ease: "easeOut" }}
-    >
+    <div className="relative h-full min-w-0 flex-1 overflow-hidden rounded-lg border border-gray-500/30 bg-white shadow-lg">
       {type === "video" ? (
         <video
           src={src}
@@ -28,7 +21,8 @@ function MediaCard({ type, src, alt, poster, priority }: MediaCardProps) {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className="h-full w-full object-cover"
+          style={{ minWidth: "100%", minHeight: "100%" }}
         />
       ) : (
         <Image
@@ -40,7 +34,7 @@ function MediaCard({ type, src, alt, poster, priority }: MediaCardProps) {
           sizes="(max-width: 768px) 100vw, 33vw"
         />
       )}
-    </motion.div>
+    </div>
   );
 }
 
@@ -57,12 +51,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ media }: HeroSectionProps) {
   return (
-    <motion.section
-      className="flex gap-2 flex-1 min-h-0"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-    >
+    <section className="flex h-full min-h-0 flex-1 gap-2">
       {media.map((item, index) => (
         <MediaCard
           key={index}
@@ -73,6 +62,6 @@ export default function HeroSection({ media }: HeroSectionProps) {
           priority={index === 0}
         />
       ))}
-    </motion.section>
+    </section>
   );
 }
