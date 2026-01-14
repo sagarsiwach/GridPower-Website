@@ -3,6 +3,7 @@
 ## Session 1 - January 14, 2026
 
 ### Overview
+
 Initial setup and implementation of the GridPower website with Next.js, featuring a sophisticated nested grid navigation system with smooth animations.
 
 ---
@@ -10,24 +11,27 @@ Initial setup and implementation of the GridPower website with Next.js, featurin
 ## Project Setup
 
 ### Repository
+
 - **GitHub:** https://github.com/sagarsiwach/GridPower-Website
 - **Framework:** Next.js 16.1.1 with App Router
 - **Language:** TypeScript
 
 ### Tech Stack Installed
-| Package | Version | Purpose |
-|---------|---------|---------|
-| Next.js | 16.1.1 | React framework with App Router & Turbopack |
-| React | 19.2.3 | UI library |
-| Tailwind CSS | v4 | Utility-first CSS framework |
-| Motion | 12.26.2 | Animation library (Framer Motion) |
-| Radix UI | latest | Accessible UI primitives |
-| lucide-react | 0.562.0 | Icon library |
-| clsx | 2.1.1 | Conditional className utility |
-| tailwind-merge | 3.4.0 | Merge Tailwind classes without conflicts |
-| class-variance-authority | latest | Component variant management |
+
+| Package                  | Version | Purpose                                     |
+| ------------------------ | ------- | ------------------------------------------- |
+| Next.js                  | 16.1.1  | React framework with App Router & Turbopack |
+| React                    | 19.2.3  | UI library                                  |
+| Tailwind CSS             | v4      | Utility-first CSS framework                 |
+| Motion                   | 12.26.2 | Animation library (Framer Motion)           |
+| Radix UI                 | latest  | Accessible UI primitives                    |
+| lucide-react             | 0.562.0 | Icon library                                |
+| clsx                     | 2.1.1   | Conditional className utility               |
+| tailwind-merge           | 3.4.0   | Merge Tailwind classes without conflicts    |
+| class-variance-authority | latest  | Component variant management                |
 
 ### Font Configuration
+
 - **Font:** Google Sans Flex (Variable)
 - **Method:** Local font via `next/font/local`
 - **File:** `src/fonts/GoogleSansFlex-Variable.ttf`
@@ -77,7 +81,9 @@ gridpower/
 ## Components Developed
 
 ### 1. Header (`src/components/ui/Header.tsx`)
+
 Navigation bar with:
+
 - GridPower logo (red square with grid pattern)
 - Navigation menu with Radix UI dropdowns
   - Residential, Workplace, Industrial, GridScale, Resources
@@ -85,7 +91,9 @@ Navigation bar with:
 - Motion animations on hover
 
 ### 2. Button (`src/components/ui/Button.tsx`)
+
 Radix UI powered button with variants:
+
 - `default` - Red gradient (primary CTA)
 - `secondary` - Gray gradient
 - `ghost` - Transparent with hover
@@ -94,7 +102,9 @@ Radix UI powered button with variants:
 Uses `class-variance-authority` for variant management.
 
 ### 3. DropdownMenu (`src/components/ui/DropdownMenu.tsx`)
+
 Full Radix UI dropdown implementation with:
+
 - Trigger, Content, Item components
 - Checkbox and Radio items
 - Sub-menus support
@@ -102,7 +112,9 @@ Full Radix UI dropdown implementation with:
 - Accessible by default
 
 ### 4. GridCard (`src/components/grid/GridCard.tsx`)
+
 Individual grid card with:
+
 - Video or image background (auto-detected)
 - Gradient overlay for text readability
 - Title and description
@@ -110,7 +122,9 @@ Individual grid card with:
 - **3D tilt effect** on mouse hover (subtle, 3° max)
 
 ### 5. GridContainer (`src/components/grid/GridContainer.tsx`)
+
 Grid navigation system with:
+
 - **Nested navigation** - 3 levels deep
 - **Smooth page transitions** with zoom + blur effects
 - **Breadcrumb navigation** with back button
@@ -123,21 +137,26 @@ Grid navigation system with:
 ## Custom Hooks
 
 ### useTilt (`src/hooks/useTilt.ts`)
+
 3D perspective tilt effect based on mouse position.
 
 **Options:**
+
 - `maxRotation`: Maximum rotation in degrees (default: 3°)
 - `perspective`: CSS perspective value (default: 1200px)
 
 **Returns:**
+
 - `ref`: Attach to the element
 - `style`: Apply to the element
 - `onMouseMove`, `onMouseEnter`, `onMouseLeave`: Event handlers
 
 ### useScrollZoom (`src/hooks/useScrollZoom.ts`)
+
 Scroll-based zoom navigation (currently disabled).
 
 **Options:**
+
 - `threshold`: Scroll amount to trigger transition (default: 200)
 - `onZoomComplete`: Callback when zoom completes
 
@@ -162,6 +181,7 @@ interface GridItem {
 ```
 
 ### Current Data Hierarchy
+
 ```
 Level 0 (3 items):
 ├── Residential
@@ -186,22 +206,27 @@ Level 0 (3 items):
 ## Animation System
 
 ### 3D Tilt (Active)
+
 - Subtle perspective rotation on mouse hover
 - Max 3° rotation for natural feel
 - Smooth 0.15s transition while moving
 - Slower 0.4s transition when leaving
 
 ### Page Transitions (Active)
+
 When navigating forward (clicking a card):
+
 1. Current grid scales to 1.1x + blurs (8px) + fades out
 2. After 300ms, content changes
 3. New grid starts at 0.9x scale
 4. Scales to 1x + unblurs + fades in over 400ms
 
 When navigating back:
+
 1. Animation reverses (zoom in first, then zoom out)
 
 ### Scroll-to-Zoom (Disabled)
+
 - Prepared but not active
 - Would allow scroll-based navigation
 - To be implemented later with more refinement
@@ -211,6 +236,7 @@ When navigating back:
 ## Styling
 
 ### globals.css
+
 ```css
 @import "tailwindcss";
 
@@ -230,6 +256,7 @@ body {
 ```
 
 ### Color Palette
+
 - Background: `#e5e7eb` (gray-200)
 - Primary Red: `#fa0016`
 - Text: `#171717` (stone-900)
@@ -288,6 +315,190 @@ npm run lint
 3. **Mobile responsiveness** - Adapt grid for smaller screens
 4. **Content pages** - Detail pages for leaf nodes
 5. **More videos** - Different videos for each section
+
+---
+
+## Session 2 - January 14, 2026
+
+### Overview
+
+Set up a robust development protocol with testing, linting, formatting, and git hooks to ensure code quality and maintainability as the project scales.
+
+---
+
+## Development Protocol Setup
+
+### Testing Framework
+
+**Vitest + React Testing Library**
+
+| Package                   | Purpose                               |
+| ------------------------- | ------------------------------------- |
+| vitest                    | Fast test runner compatible with Vite |
+| @testing-library/react    | React component testing utilities     |
+| @testing-library/jest-dom | Custom DOM matchers                   |
+| @vitejs/plugin-react      | React plugin for Vite                 |
+| jsdom                     | DOM environment for tests             |
+
+**Configuration:** `vitest.config.ts`
+
+- Environment: jsdom
+- Setup file: `src/test/setup.tsx`
+- Path alias: `@/` → `./src`
+
+**Test Setup (`src/test/setup.tsx`):**
+
+- Auto-cleanup after each test
+- Mock for `next/navigation` (useRouter, usePathname, useSearchParams)
+- Mock for `next/image`
+- Mock for ResizeObserver
+- Mock for matchMedia
+
+**Test Utils (`src/test/test-utils.tsx`):**
+
+- Custom render function with provider wrapper
+- Re-exports all testing-library utilities
+
+### Code Quality Tools
+
+**Prettier**
+
+- Config: `.prettierrc`
+- Ignore: `.prettierignore`
+- Plugin: `prettier-plugin-tailwindcss` for class sorting
+
+**ESLint (Enhanced)**
+
+- Config: `eslint.config.mjs`
+- Extends: `eslint-config-next`, `eslint-config-prettier`
+- Rules:
+  - TypeScript: no-unused-vars (warn), no-explicit-any (warn)
+  - React: hooks rules
+  - General: no-console (warn), prefer-const, no-var
+
+### Git Hooks
+
+**Husky + lint-staged**
+
+- Pre-commit hook: `.husky/pre-commit`
+- Config: `.lintstagedrc`
+
+**Pre-commit runs:**
+
+1. ESLint with auto-fix on `*.{js,jsx,ts,tsx}`
+2. Prettier on all staged files
+
+---
+
+## NPM Scripts Added
+
+```bash
+# Code Quality
+npm run lint         # Run ESLint
+npm run lint:fix     # ESLint with auto-fix
+npm run format       # Format with Prettier
+npm run format:check # Check formatting
+
+# Testing
+npm run test         # Watch mode
+npm run test:run     # Single run
+npm run test:coverage # With coverage report
+
+# Type Checking
+npm run typecheck    # tsc --noEmit
+
+# Full Validation
+npm run validate     # typecheck + lint + test:run
+```
+
+---
+
+## Example Tests Created
+
+### `src/lib/utils.test.ts`
+
+Tests for the `cn()` utility function:
+
+- Merges class names
+- Handles conditional classes
+- Handles false conditions
+- Merges conflicting Tailwind classes correctly
+- Handles arrays of classes
+
+### `src/components/ui/Button.test.tsx`
+
+Tests for the Button component:
+
+- Renders with default variant
+- Renders with secondary variant
+- Renders as child element with asChild
+- Disabled state works correctly
+
+---
+
+## Documentation
+
+**CONTRIBUTING.md** created with:
+
+- Tech stack overview
+- Project structure
+- Development commands
+- Code quality standards (TypeScript, components, styling)
+- Testing best practices
+- Git workflow (commits, branches)
+- Troubleshooting guide
+- Resource links
+
+---
+
+## Files Created/Modified
+
+### New Files
+
+| File                                | Purpose                   |
+| ----------------------------------- | ------------------------- |
+| `vitest.config.ts`                  | Vitest configuration      |
+| `src/test/setup.tsx`                | Test environment setup    |
+| `src/test/test-utils.tsx`           | Custom render utilities   |
+| `src/lib/utils.test.ts`             | Utility function tests    |
+| `src/components/ui/Button.test.tsx` | Button component tests    |
+| `.prettierrc`                       | Prettier configuration    |
+| `.prettierignore`                   | Prettier ignore patterns  |
+| `.lintstagedrc`                     | lint-staged configuration |
+| `.husky/pre-commit`                 | Pre-commit hook           |
+| `CONTRIBUTING.md`                   | Development guidelines    |
+
+### Modified Files
+
+| File                         | Changes                                 |
+| ---------------------------- | --------------------------------------- |
+| `package.json`               | Added scripts and dev dependencies      |
+| `eslint.config.mjs`          | Enhanced rules and prettier integration |
+| `src/hooks/useScrollZoom.ts` | Fixed impure function lint error        |
+
+---
+
+## Validation Results
+
+All checks pass:
+
+- ✅ TypeScript: No errors
+- ✅ ESLint: No errors or warnings
+- ✅ Tests: 9 tests passing (2 test files)
+  - `utils.test.ts`: 5 tests
+  - `Button.test.tsx`: 4 tests
+
+---
+
+## Git Commits
+
+6. **Add grid navigation system and development protocol**
+   - Nested grid navigation with 3D tilt effects
+   - Vitest testing framework setup
+   - Husky pre-commit hooks with lint-staged
+   - Prettier and enhanced ESLint configuration
+   - CONTRIBUTING.md documentation
+   - useTilt and useScrollZoom custom hooks
 
 ---
 
