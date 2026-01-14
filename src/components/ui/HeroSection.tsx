@@ -3,13 +3,15 @@
 import { motion } from "motion/react";
 import Image from "next/image";
 
-interface ImageCardProps {
+interface MediaCardProps {
+  type: "image" | "video";
   src: string;
-  alt: string;
+  alt?: string;
+  poster?: string;
   priority?: boolean;
 }
 
-function ImageCard({ src, alt, priority }: ImageCardProps) {
+function MediaCard({ type, src, alt, poster, priority }: MediaCardProps) {
   return (
     <motion.div
       className="flex-1 min-w-0 h-full bg-white border border-gray-500/30 rounded-lg overflow-hidden shadow-lg relative"
@@ -18,26 +20,42 @@ function ImageCard({ src, alt, priority }: ImageCardProps) {
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        priority={priority}
-        className="object-cover"
-        sizes="(max-width: 768px) 100vw, 33vw"
-      />
+      {type === "video" ? (
+        <video
+          src={src}
+          poster={poster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt || ""}
+          fill
+          priority={priority}
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      )}
     </motion.div>
   );
 }
 
-interface HeroSectionProps {
-  images: {
-    src: string;
-    alt: string;
-  }[];
+interface HeroMedia {
+  type: "image" | "video";
+  src: string;
+  alt?: string;
+  poster?: string;
 }
 
-export default function HeroSection({ images }: HeroSectionProps) {
+interface HeroSectionProps {
+  media: HeroMedia[];
+}
+
+export default function HeroSection({ media }: HeroSectionProps) {
   return (
     <motion.section
       className="flex gap-2 flex-1 min-h-0"
@@ -45,11 +63,13 @@ export default function HeroSection({ images }: HeroSectionProps) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
     >
-      {images.map((image, index) => (
-        <ImageCard
+      {media.map((item, index) => (
+        <MediaCard
           key={index}
-          src={image.src}
-          alt={image.alt}
+          type={item.type}
+          src={item.src}
+          alt={item.alt}
+          poster={item.poster}
           priority={index === 0}
         />
       ))}
