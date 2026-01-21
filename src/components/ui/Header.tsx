@@ -52,13 +52,16 @@ function CloseIcon({ className }: { className?: string }) {
 
 // Logo component
 function Logo({ size = "default" }: { size?: "default" | "small" }) {
+  // 1024px: h-32px, 1440px: h-40px, 1920px: h-56px
   const iconSize =
-    size === "small" ? "size-8 3xl:size-10 4xl:size-12" : "size-10 3xl:size-12 4xl:size-14";
+    size === "small" ? "size-8 3xl:size-10 4xl:size-14" : "size-10 3xl:size-12 4xl:size-14";
   const textSize =
-    size === "small" ? "text-xl 3xl:text-2xl 4xl:text-3xl" : "text-2xl 3xl:text-3xl 4xl:text-4xl";
+    size === "small"
+      ? "text-xl 3xl:text-2xl 4xl:text-[32px]"
+      : "text-2xl 3xl:text-3xl 4xl:text-4xl";
 
   return (
-    <div className="3xl:gap-3 4xl:gap-4 flex items-center gap-2">
+    <div className="flex items-center gap-2">
       {/* Logo Icon */}
       <div className={cn("relative shrink-0 overflow-hidden rounded-[3px] bg-[#fa0016]", iconSize)}>
         {/* Top right dot */}
@@ -78,15 +81,16 @@ function Logo({ size = "default" }: { size?: "default" | "small" }) {
 }
 
 // Gray gradient button style (shared)
+// 1024px: text-12px, 1440px: text-14px, 1920px: text-16px
 const grayButtonClasses =
-  "relative flex items-center justify-center gap-2 rounded bg-gradient-to-b from-gray-100 via-gray-200 via-[70%] to-gray-200 border-[0.5px] border-gray-400 px-2 py-1 shadow-[0px_0.5px_0px_0px_#6b7280] font-mono text-xs font-medium uppercase tracking-[0.48px] text-gray-700 3xl:px-3 3xl:py-1.5 3xl:text-sm 4xl:px-4 4xl:py-2";
+  "relative flex items-center justify-center gap-2 rounded bg-gradient-to-b from-gray-100 via-gray-300 via-[70%] to-gray-200 border-[0.5px] border-gray-400 px-2 py-1 shadow-[0px_0.5px_0px_0px_#6b7280] font-mono text-xs font-medium uppercase tracking-[0.48px] text-gray-700 3xl:text-sm 3xl:tracking-[-0.28px] 4xl:text-base 4xl:tracking-[0.64px]";
 
 const grayButtonInset =
   "pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_1px_0px_#f3f4f6]";
 
 // Red gradient button style (shared)
 const redButtonClasses =
-  "relative flex items-center justify-center rounded bg-gradient-to-b from-red-600 via-red-700 via-[70%] to-red-600 border-[0.5px] border-red-700 px-2 py-1 shadow-[0px_0.5px_0px_0px_#ef4444] font-mono text-xs font-medium uppercase tracking-[-0.28px] text-white 3xl:px-3 3xl:py-1.5 3xl:text-sm 4xl:px-4 4xl:py-2";
+  "relative flex items-center justify-center rounded bg-gradient-to-b from-red-600 via-red-700 via-[70%] to-red-600 border-[0.5px] border-red-700 px-2 py-1 shadow-[0px_0.5px_0px_0px_#ef4444] font-mono text-xs font-medium uppercase tracking-[-0.28px] text-white 3xl:text-sm 4xl:text-base 4xl:tracking-[-0.32px]";
 
 const redButtonInset =
   "pointer-events-none absolute inset-0 rounded-[inherit] shadow-[inset_0px_0px_1px_0px_#fef2f2]";
@@ -244,8 +248,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="3xl:h-16 4xl:h-[72px] relative h-14 overflow-visible rounded-lg bg-white shadow-[6px_6px_3px_0px_rgba(0,0,0,0),4px_4px_2px_0px_rgba(0,0,0,0.01),2px_2px_2px_0px_rgba(0,0,0,0.05),1px_1px_1px_0px_rgba(0,0,0,0.09),0px_0px_1px_0px_rgba(0,0,0,0.1)]">
-        <div className="3xl:px-6 4xl:px-8 flex h-full items-center justify-between px-4 lg:px-2">
+      <header className="relative h-14 overflow-visible rounded-lg bg-white shadow-[6px_6px_3px_0px_rgba(0,0,0,0),4px_4px_2px_0px_rgba(0,0,0,0.01),2px_2px_2px_0px_rgba(0,0,0,0.05),1px_1px_1px_0px_rgba(0,0,0,0.09),0px_0px_1px_0px_rgba(0,0,0,0.1)]">
+        {/* Container with max-width for larger screens */}
+        <div className="3xl:max-w-[1280px] 3xl:px-2 4xl:max-w-[1536px] 4xl:px-4 mx-auto flex h-full max-w-[1024px] items-center justify-between px-4 lg:px-2">
           {/* ===== MOBILE (<640px): Hamburger + Centered Logo + Register ===== */}
           <button
             onClick={() => setMobileMenuOpen(true)}
@@ -276,7 +281,8 @@ export default function Header() {
           </div>
 
           {/* ===== DESKTOP (1024px+): Navigation (center) ===== */}
-          <nav className="3xl:gap-7 4xl:gap-9 absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-0.5 lg:flex">
+          {/* Nav gap: 1024px=2px, 1440px=2px, 1920px=4px */}
+          <nav className="4xl:gap-1 absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-0.5 lg:flex">
             {navItems.map((item) => (
               <NavButton
                 key={item.label}
@@ -294,7 +300,7 @@ export default function Header() {
           </button>
 
           {/* ===== DESKTOP (1024px+): Login + Contact buttons ===== */}
-          <div className="3xl:gap-2 4xl:gap-3 hidden items-center gap-0.5 lg:flex">
+          <div className="hidden items-center gap-0.5 lg:flex">
             <button className={grayButtonClasses}>
               <span>LOGIN</span>
               <div className={grayButtonInset} />
