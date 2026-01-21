@@ -1,5 +1,193 @@
 # GridPower Website - Development Sessions
 
+## Session 4 - January 21, 2026
+
+### Objective
+
+Explore Figma Code Connect integration for mapping design components to code.
+
+---
+
+### Tasks
+
+- [x] Attempt Figma Code Connect mapping via MCP tools
+- [x] Verify Figma MCP connection and authentication
+- [x] Get design context for Header component
+- [ ] Create Code Connect mapping (blocked - requires main component, not instance)
+
+---
+
+### Figma Code Connect Investigation
+
+**Goal:** Map Figma design nodes to code components using Code Connect.
+
+**Figma URL:** `https://www.figma.com/design/dhopz4k1sXaRpUu2jLIBGl/DEV---2026?node-id=10913-4540`
+
+**Findings:**
+
+1. **MCP Tools Available:**
+   - `plugin_figma_figma/add_code_connect_map` - Create mappings
+   - `plugin_figma_figma/get_code_connect_map` - Get existing mappings
+   - `plugin_figma_figma/get_design_context` - Get design code context
+   - `plugin_figma_figma/get_metadata` - Get node structure
+
+2. **Issue Encountered:**
+   - The selected node (`10913:4540`) is a "Phone" frame containing component instances
+   - The Header at node `10913:4541` is an **instance**, not the main component
+   - Code Connect requires mapping to **main component definitions**, not instances
+   - `add_code_connect_map` returns "Invalid tool call" for instances
+
+3. **Authenticated User:** Sagar Siwach (sagar@classicgroup.asia)
+
+4. **Design Context Retrieved:**
+   - Header component has Login button, Register button, and logo
+   - Mobile breakpoint layout (440px width)
+   - Uses JetBrains Mono font, red gradient buttons
+
+**Next Steps for Code Connect:**
+- Find the main Header component in the Figma library
+- Or create components as main components (not instances) before mapping
+- Consider creating a `figma.config.json` manual mapping file
+
+---
+
+### Components Explored
+
+| Component | Location | Figma Node |
+|-----------|----------|------------|
+| Header | `src/components/ui/Header.tsx` | 10913:4541 (instance) |
+
+---
+
+## Session 3 - January 20, 2026
+
+### Objective
+
+Complete development environment setup with Sanity CMS, skills installation, and Ralph autonomous coding structure.
+
+---
+
+### Tasks
+
+- [x] Switch to v2 branch
+- [x] Add Ralph structure (AGENTS.md, PROMPT_plan.md, PROMPT_build.md, loop.sh)
+- [x] Copy documentation to docs/ folder
+- [x] Switch from npm to Bun (package manager)
+- [x] Install Sanity CMS (next-sanity, @sanity/image-url)
+- [x] Configure Sanity + Next.js integration
+- [x] Install Storybook 10.1.11 with Next.js Vite framework
+- [x] Add Agent Skills documentation
+- [x] Add Web Interface Guidelines documentation
+- [x] Fix test setup (jest-dom matchers)
+- [ ] Create specs/ files
+- [ ] Add Figma screenshots for breakpoints
+
+---
+
+### Tech Stack (Final)
+
+| Layer        | Choice       | Version  | Notes                       |
+|--------------|--------------|----------|-----------------------------|
+| Framework    | Next.js      | 16.1.1   | App Router, Turbopack       |
+| Styling      | Tailwind CSS | v4.1     | @tailwindcss/postcss        |
+| Language     | TypeScript   | 5.9.3    | Strict mode                 |
+| Components   | Radix UI     | Latest   | Accessible primitives       |
+| Animation    | Motion.dev   | 12.27.2  | Not Framer Motion           |
+| CMS          | Sanity       | 9.12.3   | next-sanity integration     |
+| Testing      | Vitest       | 4.0.17   | + React Testing Library     |
+| Storybook    | Storybook    | 10.1.11  | Component development       |
+| Pkg Manager  | Bun          | 1.3.6    | Fast, replaces npm          |
+| Context/Docs | Context7 MCP | -        | For documentation lookups   |
+
+---
+
+### Skills Reference
+
+| Skill | Commands | Purpose |
+|-------|----------|---------|
+| Agent Skills | `/react-best-practices`, `/web-design-guidelines`, `/vercel-deploy-claimable` | Performance, accessibility, deployment |
+| UI Skills | `/ui-skills`, `/ui-skills <file>` | Constraints and review |
+| RAMS | `/rams`, `/rams <file>` | Accessibility audit |
+
+---
+
+### Sanity + Next.js Integration Strategy
+
+**Architecture:**
+```
+gridpower/
+├── src/                    # Next.js app
+│   ├── app/
+│   ├── components/
+│   └── sanity/             # Sanity client & queries
+│       ├── client.ts       # Sanity client config
+│       ├── queries.ts      # GROQ queries
+│       └── types.ts        # Generated types
+└── sanity/                 # Sanity Studio (optional: can be separate)
+    ├── schemas/
+    └── sanity.config.ts
+```
+
+**Integration Pattern:**
+1. Use `next-sanity` for client-side fetching
+2. Use Sanity's Content Lake API for server components
+3. Enable draft mode for preview
+4. Use `@sanity/image-url` for image optimization
+
+---
+
+### Files Added This Session
+
+| File | Purpose |
+|------|---------|
+| `AGENTS.md` | Agent instructions for autonomous coding |
+| `PROMPT_plan.md` | Planning prompt for Ralph |
+| `PROMPT_build.md` | Build prompt for Ralph |
+| `loop.sh` | Ralph execution script |
+| `docs/ui-skills.md` | UI constraints reference |
+| `docs/ui-ux-guidelines.md` | Design guidelines |
+| `docs/agent-skills.md` | Vercel agent skills |
+| `docs/rams.md` | Accessibility review methodology |
+| `docs/ralph-playbook.md` | Ralph orchestration guide |
+| `docs/project-overview.md` | Project overview and milestones |
+| `docs/web-interface-guidelines.md` | Web interface rules |
+| `src/sanity/` | Sanity CMS client + queries |
+| `src/stories/` | Storybook stories |
+| `.storybook/` | Storybook configuration |
+| `.env.example` | Environment variables template |
+
+---
+
+### Commands Reference
+
+```bash
+# Development
+bun run dev              # Start Next.js dev server
+bun run storybook        # Start Storybook on port 6006
+
+# Validation
+bun run typecheck        # TypeScript check
+bun run lint             # ESLint
+bun run test             # Vitest watch mode
+bun run test:run         # Vitest single run
+bun run validate         # All checks
+
+# Build
+bun run build            # Production build
+bun run build-storybook  # Build Storybook
+```
+
+---
+
+### Git Commits
+
+7. **feat: add Ralph autonomous coding structure**
+   - Added AGENTS.md, PROMPT files, loop.sh
+   - Copied documentation to docs/
+   - Pushed to v2 branch
+
+---
+
 ## Session 1 - January 14, 2026
 
 ### Overview
