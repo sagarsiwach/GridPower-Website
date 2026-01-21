@@ -1,5 +1,120 @@
 # GridPower Website - Development Sessions
 
+## Session 6 - January 21, 2026
+
+### Objective
+
+Configure Google Sans 17pt fonts, clean up old components, and implement new hero section from Figma design.
+
+---
+
+### Tasks
+
+- [x] Configure Google Sans 17pt local fonts (Regular, Medium, SemiBold, Bold)
+- [x] Remove old components (HeroSection, GridCard, GridContainer)
+- [x] Remove old hooks (useTilt, useScrollZoom)
+- [x] Remove grid-data.ts
+- [x] Implement new hero section from Figma (node: 10913-4889)
+- [x] Create vector grid/guidelines background
+- [x] Fix Header responsiveness for all breakpoints
+
+---
+
+### Font Configuration
+
+**Google Sans 17pt Added:**
+
+| Property       | Value                                                   |
+| -------------- | ------------------------------------------------------- |
+| Source         | Local fonts (`src/fonts/GoogleSans_17pt-*.ttf`)         |
+| CSS Variable   | `--font-google-sans-17pt`                               |
+| Tailwind Class | `font-sans-17pt`                                        |
+| Weights        | Regular (400), Medium (500), SemiBold (600), Bold (700) |
+| Usage          | Text at 17pt+ optical sizes for improved readability    |
+
+**Font Files Added:**
+
+- `GoogleSans_17pt-Regular.ttf`
+- `GoogleSans_17pt-Medium.ttf`
+- `GoogleSans_17pt-SemiBold.ttf`
+- `GoogleSans_17pt-Bold.ttf`
+
+**Files Modified:**
+
+- `src/app/layout.tsx` - Added googleSans17pt localFont configuration
+- `src/app/globals.css` - Added `--font-sans-17pt` to theme
+
+---
+
+### Components Removed
+
+| Component/File                          | Reason                          |
+| --------------------------------------- | ------------------------------- |
+| `src/components/ui/HeroSection.tsx`     | Replaced by new Figma design    |
+| `src/components/grid/GridCard.tsx`      | Moved to new branch, not needed |
+| `src/components/grid/GridContainer.tsx` | Moved to new branch, not needed |
+| `src/components/grid/index.ts`          | Folder removed                  |
+| `src/lib/grid-data.ts`                  | No longer used                  |
+| `src/hooks/useTilt.ts`                  | Used by old grid components     |
+| `src/hooks/useScrollZoom.ts`            | Used by old grid components     |
+
+---
+
+### Files Modified
+
+| File                           | Changes                                 |
+| ------------------------------ | --------------------------------------- |
+| `src/app/layout.tsx`           | Added Google Sans 17pt font config      |
+| `src/app/globals.css`          | Added `--font-sans-17pt` variable       |
+| `src/app/page.tsx`             | Updated to use Hero with Header overlay |
+| `src/components/ui/index.ts`   | Added Hero, removed HeroSection export  |
+| `src/components/ui/Header.tsx` | Fixed responsive height and width       |
+| `src/hooks/index.ts`           | Cleared (hooks removed)                 |
+
+---
+
+### Components Added
+
+**Hero Component** (`src/components/ui/Hero.tsx`):
+
+- Full-viewport hero section with wind turbines background image
+- Vector grid overlay (white lines at 10% and 90% horizontal, 80px top)
+- Content card with semi-transparent glassmorphism effect
+- "GridPower" branded badge
+- "The Open Energy Platform" headline in red
+- Description text and "Express Interest" CTA button
+- Responsive design for 1440px and 1920px breakpoints
+
+---
+
+### Header Responsiveness Fix
+
+| Property      | Mobile      | 1440px (3xl) | 1920px (4xl) |
+| ------------- | ----------- | ------------ | ------------ |
+| Header height | h-14 (56px) | h-16 (64px)  | h-[72px]     |
+| Container pad | px-4        | px-6         | px-8         |
+| Page wrapper  | px-4        | px-[192px]   | px-[192px]   |
+
+---
+
+### Current Font Setup
+
+| Font             | CSS Variable              | Tailwind Class   | Source         |
+| ---------------- | ------------------------- | ---------------- | -------------- |
+| Google Sans Flex | `--font-google-sans-flex` | `font-sans`      | Local (var)    |
+| Google Sans 17pt | `--font-google-sans-17pt` | `font-sans-17pt` | Local (static) |
+| JetBrains Mono   | `--font-jetbrains-mono`   | `font-mono`      | Google Fonts   |
+
+---
+
+### Figma Reference
+
+| Component    | Node ID    | Status      |
+| ------------ | ---------- | ----------- |
+| Hero Section | 10913:4889 | In Progress |
+
+---
+
 ## Session 5 - January 21, 2026
 
 ### Objective
@@ -48,19 +163,27 @@ Added to `src/app/globals.css`:
 
 ---
 
-### Header Responsive Updates
+### Header Responsive Updates (Corrected)
 
-| Element            | 1024px (lg) | 1440px (3xl) | 1920px (4xl) |
-| ------------------ | ----------- | ------------ | ------------ |
-| Header height      | h-14        | h-16         | h-[72px]     |
-| Container padding  | px-2        | px-6         | px-8         |
-| Nav item gap       | gap-0.5     | gap-7        | gap-9        |
-| Button padding     | px-2 py-1   | px-3 py-1.5  | px-4 py-2    |
-| Button text        | text-xs     | text-sm      | text-sm      |
-| Logo icon          | size-8      | size-10      | size-12      |
-| Logo text          | text-xl     | text-2xl     | text-3xl     |
-| Logo gap           | gap-2       | gap-3        | gap-4        |
-| Action buttons gap | gap-0.5     | gap-2        | gap-3        |
+Based on Figma specs, the responsive values were corrected:
+
+| Element         | 1024px (lg)    | 1440px (3xl)   | 1920px (4xl)     |
+| --------------- | -------------- | -------------- | ---------------- |
+| Container max-w | 1024px         | 1280px         | 1536px           |
+| Nav item gap    | gap-0.5 (2px)  | gap-0.5 (2px)  | gap-1 (4px)      |
+| Button text     | text-xs (12px) | text-sm (14px) | text-base (16px) |
+| Logo icon       | size-8         | size-10        | size-14          |
+
+---
+
+### Git Activity
+
+| Commit  | Message                                                               |
+| ------- | --------------------------------------------------------------------- |
+| 4b2fe2b | feat: add JetBrains Mono font and responsive Header for 1440px/1920px |
+| a8ece1e | fix: correct Header responsive values based on Figma specs            |
+
+**PR #1 merged to main** (squash merge)
 
 ---
 
