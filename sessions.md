@@ -1,5 +1,88 @@
 # GridPower Website - Development Sessions
 
+## Session 5 - January 21, 2026
+
+### Objective
+
+Implement responsive Header component for 1440px and 1920px breakpoints, and configure JetBrains Mono font using Next.js font system.
+
+---
+
+### Tasks
+
+- [x] Configure JetBrains Mono font from Google Fonts
+- [x] Add custom Tailwind breakpoints (3xl: 1440px, 4xl: 1920px)
+- [x] Update Header component with responsive styles for larger screens
+- [x] Scale logo, buttons, and navigation gaps for 1440px/1920px
+
+---
+
+### Font Configuration
+
+**JetBrains Mono Added:**
+
+| Property       | Value                                |
+| -------------- | ------------------------------------ |
+| Source         | `next/font/google`                   |
+| CSS Variable   | `--font-jetbrains-mono`              |
+| Tailwind Class | `font-mono`                          |
+| Usage          | Navigation buttons, uppercase labels |
+
+**Files Modified:**
+
+- `src/app/layout.tsx` - Added JetBrains_Mono import and variable
+- `src/app/globals.css` - Added `--font-mono` to theme
+
+---
+
+### Custom Breakpoints
+
+Added to `src/app/globals.css`:
+
+```css
+@theme inline {
+  --breakpoint-3xl: 1440px;
+  --breakpoint-4xl: 1920px;
+}
+```
+
+---
+
+### Header Responsive Updates
+
+| Element            | 1024px (lg) | 1440px (3xl) | 1920px (4xl) |
+| ------------------ | ----------- | ------------ | ------------ |
+| Header height      | h-14        | h-16         | h-[72px]     |
+| Container padding  | px-2        | px-6         | px-8         |
+| Nav item gap       | gap-0.5     | gap-7        | gap-9        |
+| Button padding     | px-2 py-1   | px-3 py-1.5  | px-4 py-2    |
+| Button text        | text-xs     | text-sm      | text-sm      |
+| Logo icon          | size-8      | size-10      | size-12      |
+| Logo text          | text-xl     | text-2xl     | text-3xl     |
+| Logo gap           | gap-2       | gap-3        | gap-4        |
+| Action buttons gap | gap-0.5     | gap-2        | gap-3        |
+
+---
+
+### Files Modified
+
+| File                           | Changes                                           |
+| ------------------------------ | ------------------------------------------------- |
+| `src/app/layout.tsx`           | Added JetBrains Mono font import and CSS variable |
+| `src/app/globals.css`          | Added `--font-mono` and custom breakpoints        |
+| `src/components/ui/Header.tsx` | Responsive styles for 1440px/1920px               |
+
+---
+
+### Figma Reference
+
+| Breakpoint | Node ID    | Width  |
+| ---------- | ---------- | ------ |
+| 1440px     | 10913:4528 | 1440px |
+| 1920px     | 10913:4594 | 1920px |
+
+---
+
 ## Session 4 - January 21, 2026
 
 ### Objective
@@ -45,6 +128,7 @@ Explore Figma Code Connect integration for mapping design components to code.
    - Uses JetBrains Mono font, red gradient buttons
 
 **Next Steps for Code Connect:**
+
 - Find the main Header component in the Figma library
 - Or create components as main components (not instances) before mapping
 - Consider creating a `figma.config.json` manual mapping file
@@ -53,9 +137,9 @@ Explore Figma Code Connect integration for mapping design components to code.
 
 ### Components Explored
 
-| Component | Location | Figma Node |
-|-----------|----------|------------|
-| Header | `src/components/ui/Header.tsx` | 10913:4541 (instance) |
+| Component | Location                       | Figma Node            |
+| --------- | ------------------------------ | --------------------- |
+| Header    | `src/components/ui/Header.tsx` | 10913:4541 (instance) |
 
 ---
 
@@ -86,34 +170,35 @@ Complete development environment setup with Sanity CMS, skills installation, and
 
 ### Tech Stack (Final)
 
-| Layer        | Choice       | Version  | Notes                       |
-|--------------|--------------|----------|-----------------------------|
-| Framework    | Next.js      | 16.1.1   | App Router, Turbopack       |
-| Styling      | Tailwind CSS | v4.1     | @tailwindcss/postcss        |
-| Language     | TypeScript   | 5.9.3    | Strict mode                 |
-| Components   | Radix UI     | Latest   | Accessible primitives       |
-| Animation    | Motion.dev   | 12.27.2  | Not Framer Motion           |
-| CMS          | Sanity       | 9.12.3   | next-sanity integration     |
-| Testing      | Vitest       | 4.0.17   | + React Testing Library     |
-| Storybook    | Storybook    | 10.1.11  | Component development       |
-| Pkg Manager  | Bun          | 1.3.6    | Fast, replaces npm          |
-| Context/Docs | Context7 MCP | -        | For documentation lookups   |
+| Layer        | Choice       | Version | Notes                     |
+| ------------ | ------------ | ------- | ------------------------- |
+| Framework    | Next.js      | 16.1.1  | App Router, Turbopack     |
+| Styling      | Tailwind CSS | v4.1    | @tailwindcss/postcss      |
+| Language     | TypeScript   | 5.9.3   | Strict mode               |
+| Components   | Radix UI     | Latest  | Accessible primitives     |
+| Animation    | Motion.dev   | 12.27.2 | Not Framer Motion         |
+| CMS          | Sanity       | 9.12.3  | next-sanity integration   |
+| Testing      | Vitest       | 4.0.17  | + React Testing Library   |
+| Storybook    | Storybook    | 10.1.11 | Component development     |
+| Pkg Manager  | Bun          | 1.3.6   | Fast, replaces npm        |
+| Context/Docs | Context7 MCP | -       | For documentation lookups |
 
 ---
 
 ### Skills Reference
 
-| Skill | Commands | Purpose |
-|-------|----------|---------|
+| Skill        | Commands                                                                      | Purpose                                |
+| ------------ | ----------------------------------------------------------------------------- | -------------------------------------- |
 | Agent Skills | `/react-best-practices`, `/web-design-guidelines`, `/vercel-deploy-claimable` | Performance, accessibility, deployment |
-| UI Skills | `/ui-skills`, `/ui-skills <file>` | Constraints and review |
-| RAMS | `/rams`, `/rams <file>` | Accessibility audit |
+| UI Skills    | `/ui-skills`, `/ui-skills <file>`                                             | Constraints and review                 |
+| RAMS         | `/rams`, `/rams <file>`                                                       | Accessibility audit                    |
 
 ---
 
 ### Sanity + Next.js Integration Strategy
 
 **Architecture:**
+
 ```
 gridpower/
 ├── src/                    # Next.js app
@@ -129,6 +214,7 @@ gridpower/
 ```
 
 **Integration Pattern:**
+
 1. Use `next-sanity` for client-side fetching
 2. Use Sanity's Content Lake API for server components
 3. Enable draft mode for preview
@@ -138,23 +224,23 @@ gridpower/
 
 ### Files Added This Session
 
-| File | Purpose |
-|------|---------|
-| `AGENTS.md` | Agent instructions for autonomous coding |
-| `PROMPT_plan.md` | Planning prompt for Ralph |
-| `PROMPT_build.md` | Build prompt for Ralph |
-| `loop.sh` | Ralph execution script |
-| `docs/ui-skills.md` | UI constraints reference |
-| `docs/ui-ux-guidelines.md` | Design guidelines |
-| `docs/agent-skills.md` | Vercel agent skills |
-| `docs/rams.md` | Accessibility review methodology |
-| `docs/ralph-playbook.md` | Ralph orchestration guide |
-| `docs/project-overview.md` | Project overview and milestones |
-| `docs/web-interface-guidelines.md` | Web interface rules |
-| `src/sanity/` | Sanity CMS client + queries |
-| `src/stories/` | Storybook stories |
-| `.storybook/` | Storybook configuration |
-| `.env.example` | Environment variables template |
+| File                               | Purpose                                  |
+| ---------------------------------- | ---------------------------------------- |
+| `AGENTS.md`                        | Agent instructions for autonomous coding |
+| `PROMPT_plan.md`                   | Planning prompt for Ralph                |
+| `PROMPT_build.md`                  | Build prompt for Ralph                   |
+| `loop.sh`                          | Ralph execution script                   |
+| `docs/ui-skills.md`                | UI constraints reference                 |
+| `docs/ui-ux-guidelines.md`         | Design guidelines                        |
+| `docs/agent-skills.md`             | Vercel agent skills                      |
+| `docs/rams.md`                     | Accessibility review methodology         |
+| `docs/ralph-playbook.md`           | Ralph orchestration guide                |
+| `docs/project-overview.md`         | Project overview and milestones          |
+| `docs/web-interface-guidelines.md` | Web interface rules                      |
+| `src/sanity/`                      | Sanity CMS client + queries              |
+| `src/stories/`                     | Storybook stories                        |
+| `.storybook/`                      | Storybook configuration                  |
+| `.env.example`                     | Environment variables template           |
 
 ---
 

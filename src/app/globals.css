@@ -2,8 +2,14 @@
 
 @theme inline {
   --font-sans: var(--font-google-sans-flex), ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   --color-background: #e5e7eb;
   --color-foreground: #171717;
+
+  /* Custom breakpoints */
+  --breakpoint-3xl: 1440px;
+  --breakpoint-4xl: 1920px;
 }
 
 body {
