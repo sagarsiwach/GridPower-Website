@@ -1,34 +1,38 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import { JetBrains_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import { Header } from "@/components/ui/Header";
+import { Footer } from "@/components/ui/Footer";
 import "./globals.css";
 
-const googleSansFlex = localFont({
-  src: "../fonts/GoogleSansFlex-Variable.ttf",
-  variable: "--font-google-sans-flex",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
+  variable: "--font-geist",
 });
 
 export const metadata: Metadata = {
-  title: "GridPower - Solar Energy Solutions",
+  title: "GridPower | The Open Energy Platform",
   description:
-    "GridPower provides residential, workplace, and industrial solar energy solutions. Powering a sustainable future.",
+    "Charging, storage, and powertrain -- one open ecosystem. EV charging stations and energy storage systems built on open technology. No vendor lock-in.",
+  openGraph: {
+    title: "GridPower | The Open Energy Platform",
+    description:
+      "Charging, storage, and powertrain -- one open ecosystem. EV charging stations and energy storage systems built on open technology.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${googleSansFlex.variable} ${jetbrainsMono.variable}`}>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={geist.variable}>
+      <body style={{ fontFamily: "var(--font-geist), var(--font-sans)" }}>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
