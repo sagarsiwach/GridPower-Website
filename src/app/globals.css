@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
-:root {
-  /* Typography */
-  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
-
+@theme {
   /* GridPower Brand Colors */
-  --gp-primary: #0891B2;
-  --gp-secondary: #22D3EE;
-  --gp-cta: #22C55E;
-  --gp-cta-hover: #16A34A;
-  --gp-red: #FA0015;
+  --color-gp-primary: #0891B2;
+  --color-gp-secondary: #22D3EE;
+  --color-gp-cta: #22C55E;
+  --color-gp-cta-hover: #16A34A;
+  --color-gp-red: #FA0015;
 
   /* Functional Colors */
-  --background: #FFFFFF;
-  --background-tint: #ECFEFF;
-  --foreground: #164E63;
-  --foreground-muted: #4B7A8A;
-  --dark: #0F172A;
-  --dark-surface: #1E293B;
-  --border: #E0F2FE;
-  --border-dark: #BAE6FD;
+  --color-bg: #FFFFFF;
+  --color-bg-tint: #ECFEFF;
+  --color-fg: #164E63;
+  --color-fg-muted: #4B7A8A;
+  --color-dark: #0F172A;
+  --color-dark-surface: #1E293B;
+  --color-border-light: #E0F2FE;
+  --color-border-dark: #BAE6FD;
+}
+
+:root {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
 }
 
 * {

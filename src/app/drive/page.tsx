@@ -31,32 +31,32 @@ export default function DrivePage() {
     <main>
       <section className="pb-20 pt-32 md:pb-28 md:pt-40">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-gp-primary">
             GridDrive
           </p>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-fg md:text-6xl">
             Electrify any vehicle.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-fg-muted">
             OEM powertrain components and complete kits. Published specs, open
             documentation, no black boxes.
           </p>
         </div>
       </section>
 
-      <section className="border-t border-[var(--border)] bg-[var(--background-tint)] py-24">
+      <section className="border-t border-border-light bg-bg-tint py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-6 md:grid-cols-3">
             {vehicles.map((vehicle) => (
               <div
                 key={vehicle.title}
-                className="rounded-lg border border-[var(--border)] bg-white p-8"
+                className="rounded-lg border border-border-light bg-white p-8"
               >
-                <div className="mb-8 h-48 rounded-md bg-[var(--background-tint)]" />
-                <h2 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
+                <div className="mb-8 h-48 rounded-md bg-bg-tint" />
+                <h2 className="mb-3 text-2xl font-bold text-fg">
                   {vehicle.title}
                 </h2>
-                <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
+                <p className="text-sm leading-relaxed text-fg-muted">
                   {vehicle.description}
                 </p>
               </div>
@@ -67,12 +67,12 @@ export default function DrivePage() {
 
       <section className="py-24 text-center">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--foreground)]">
+          <h2 className="mb-6 text-2xl font-bold tracking-tight text-fg">
             Building an electric vehicle?
           </h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-[var(--gp-cta)] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--gp-cta-hover)] cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-md bg-gp-cta px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
           >
             Talk to Our Team <ArrowRight className="h-4 w-4" />
           </Link>

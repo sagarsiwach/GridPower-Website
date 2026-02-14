@@ -38,10 +38,10 @@ export function GridEnergySolutions() {
     <section id="solutions" className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-gp-primary">
             GridEnergy
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-fg md:text-5xl">
             Energy storage, every scale.
           </h2>
         </div>
@@ -52,18 +52,18 @@ export function GridEnergySolutions() {
             return (
               <div
                 key={solution.title}
-                className="group rounded-lg border border-[var(--border)] bg-white p-6 transition-all duration-200 hover:border-[var(--gp-primary)]/30 hover:shadow-md"
+                className="group rounded-lg border border-border-light bg-white p-6 transition-all duration-200 hover:border-gp-primary/30 hover:shadow-md"
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--background-tint)]">
-                  <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-bg-tint">
+                  <Icon className="h-5 w-5 text-gp-primary" />
                 </div>
-                <h3 className="mb-1 text-base font-bold text-[var(--foreground)]">
+                <h3 className="mb-1 text-base font-bold text-fg">
                   {solution.title}
                 </h3>
-                <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                <p className="mb-3 text-sm font-semibold text-gp-primary">
                   {solution.tagline}
                 </p>
-                <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
+                <p className="text-sm leading-relaxed text-fg-muted">
                   {solution.description}
                 </p>
               </div>

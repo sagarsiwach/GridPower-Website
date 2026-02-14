@@ -21,13 +21,13 @@ export function GridDriveSection() {
     <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-gp-primary">
             GridDrive
           </p>
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-fg md:text-5xl">
             Electrify any vehicle.
           </h2>
-          <p className="mt-4 max-w-lg text-base text-[var(--foreground-muted)]">
+          <p className="mt-4 max-w-lg text-base text-fg-muted">
             Complete powertrain development. Battery pack integration.
           </p>
         </div>
@@ -36,13 +36,13 @@ export function GridDriveSection() {
           {vehicles.map((vehicle) => (
             <div
               key={vehicle.title}
-              className="group rounded-lg border border-[var(--border)] p-8 transition-all duration-200 hover:border-[var(--gp-primary)]/30 hover:shadow-md"
+              className="group rounded-lg border border-border-light p-8 transition-all duration-200 hover:border-gp-primary/30 hover:shadow-md"
             >
-              <div className="mb-8 h-48 rounded-md bg-[var(--background-tint)]" />
-              <h3 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
+              <div className="mb-8 h-48 rounded-md bg-bg-tint" />
+              <h3 className="mb-3 text-2xl font-bold text-fg">
                 {vehicle.title}
               </h3>
-              <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
+              <p className="text-sm leading-relaxed text-fg-muted">
                 {vehicle.description}
               </p>
             </div>
