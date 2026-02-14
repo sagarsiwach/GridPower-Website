@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
   // Optimize package imports for better tree-shaking and faster builds
-  // This automatically transforms barrel imports to direct imports at build time
   experimental: {
     optimizePackageImports: [
       "lucide-react",
