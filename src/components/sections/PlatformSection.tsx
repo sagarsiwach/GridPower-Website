@@ -20,22 +20,22 @@ const features = [
 
 export function PlatformSection() {
   return (
-    <section className="bg-[var(--muted)] py-28 md:py-36">
+    <section className="bg-[var(--background-tint)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid items-center gap-16 lg:grid-cols-2">
-          {/* Copy */}
           <div>
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+            <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
               GridOS
             </p>
-            <h2 className="mb-6 text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-5xl">
+            <h2 className="mb-6 text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
               One platform.
               <br />
               Every asset.
             </h2>
-            <p className="mb-10 max-w-lg text-base leading-relaxed text-[var(--muted-foreground)]">
-              Every GridPower product connects through GridOS -- our open energy operating system.
-              Monitor, manage, and optimize your entire energy infrastructure from a single console.
+            <p className="mb-10 max-w-lg text-base leading-relaxed text-[var(--foreground-muted)]">
+              Every GridPower product connects through GridOS -- our open energy
+              operating system. Monitor, manage, and optimize your entire energy
+              infrastructure from a single console.
             </p>
 
             <div className="space-y-6">
@@ -43,14 +43,14 @@ export function PlatformSection() {
                 const Icon = feature.icon;
                 return (
                   <div key={feature.title} className="flex gap-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white">
-                      <Icon className="h-5 w-5 text-[var(--foreground)]" />
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-white">
+                      <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
                     </div>
                     <div>
-                      <h3 className="text-sm font-semibold text-[var(--foreground)]">
+                      <h3 className="text-sm font-bold text-[var(--foreground)]">
                         {feature.title}
                       </h3>
-                      <p className="mt-1 text-sm text-[var(--muted-foreground)]">
+                      <p className="mt-1 text-sm text-[var(--foreground-muted)]">
                         {feature.description}
                       </p>
                     </div>
@@ -60,17 +60,16 @@ export function PlatformSection() {
             </div>
           </div>
 
-          {/* Device mockup placeholder */}
           <div className="flex items-center justify-center">
-            <div className="aspect-[4/3] w-full max-w-lg rounded-2xl border border-[var(--border)] bg-white p-8">
-              <div className="flex h-full flex-col items-center justify-center rounded-xl bg-[var(--muted)]">
-                <div className="mb-4 h-3 w-32 rounded-full bg-[var(--border)]" />
-                <div className="mb-2 h-2 w-48 rounded-full bg-[var(--border)]" />
-                <div className="mb-6 h-2 w-40 rounded-full bg-[var(--border)]" />
+            <div className="aspect-[4/3] w-full max-w-lg rounded-lg border border-[var(--border)] bg-white p-8">
+              <div className="flex h-full flex-col items-center justify-center rounded-md bg-[var(--background-tint)]">
+                <div className="mb-4 h-3 w-32 rounded-sm bg-[var(--border-dark)]" />
+                <div className="mb-2 h-2 w-48 rounded-sm bg-[var(--border)]" />
+                <div className="mb-6 h-2 w-40 rounded-sm bg-[var(--border)]" />
                 <div className="grid w-full max-w-xs grid-cols-3 gap-3 px-6">
-                  <div className="h-16 rounded-lg bg-[var(--border)]" />
-                  <div className="h-16 rounded-lg bg-[var(--border)]" />
-                  <div className="h-16 rounded-lg bg-[var(--border)]" />
+                  <div className="h-16 rounded-md bg-[var(--border)]" />
+                  <div className="h-16 rounded-md bg-[var(--border)]" />
+                  <div className="h-16 rounded-md bg-[var(--border)]" />
                 </div>
               </div>
             </div>

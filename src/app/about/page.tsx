@@ -6,75 +6,91 @@ export const metadata: Metadata = {
     "GridPower is India's open energy infrastructure company. Learn about our mission, heritage, and team.",
 };
 
+const timeline = [
+  { year: "2015", event: "Classic Packaging Industry established in Goa" },
+  { year: "2019", event: "Kabira Mobility launches electric two-wheelers" },
+  { year: "2026", event: "GridPower launches as India's open energy platform" },
+];
+
 export default function AboutPage() {
   return (
     <main>
-      {/* Hero */}
       <section className="pb-20 pt-32 md:pb-28 md:pt-40">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             About GridPower
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-[var(--foreground)] md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] md:text-6xl">
             India&apos;s open energy
             <br />
             infrastructure company.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--muted-foreground)]">
-            We believe energy infrastructure should be open, transparent, and accessible. Not locked
-            behind proprietary systems and vendor contracts.
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
+            We believe energy infrastructure should be open, transparent, and
+            accessible. Not locked behind proprietary systems and vendor
+            contracts.
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="border-t border-[var(--border)] bg-[var(--muted)] py-28">
+      <section className="border-t border-[var(--border)] bg-[var(--background-tint)] py-24">
         <div className="mx-auto max-w-4xl px-6">
           <div className="grid gap-16 md:grid-cols-2">
             <div>
-              <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--foreground)]">
                 Our Story
               </h2>
-              <div className="space-y-4 text-sm leading-relaxed text-[var(--muted-foreground)]">
+              <div className="space-y-4 text-sm leading-relaxed text-[var(--foreground-muted)]">
                 <p>
-                  GridPower grew out of Kabira Mobility, an electric two-wheeler company founded in
-                  2019 in Goa, India. Building electric vehicles taught us that the real bottleneck
-                  isn&apos;t the vehicle -- it&apos;s the infrastructure.
+                  GridPower grew out of Kabira Mobility, an electric two-wheeler
+                  company founded in 2019 in Goa, India. Building electric
+                  vehicles taught us that the real bottleneck isn&apos;t the
+                  vehicle -- it&apos;s the infrastructure.
                 </p>
                 <p>
-                  Charging stations that don&apos;t work. Energy storage that&apos;s locked to one vendor.
-                  Software that holds your data hostage. We saw these problems firsthand and decided
-                  to build something different.
+                  Charging stations that don&apos;t work. Energy storage
+                  that&apos;s locked to one vendor. Software that holds your
+                  data hostage. We saw these problems firsthand and decided to
+                  build something different.
                 </p>
                 <p>
-                  In 2026, we launched GridPower as an open energy platform. One ecosystem for
-                  charging, storage, and powertrain -- built on open protocols, published specs, and
-                  full transparency.
+                  In 2026, we launched GridPower as an open energy platform. One
+                  ecosystem for charging, storage, and powertrain -- built on
+                  open protocols, published specs, and full transparency.
                 </p>
               </div>
             </div>
 
             <div>
-              <h2 className="mb-6 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--foreground)]">
                 What We Build
               </h2>
               <div className="space-y-6">
-                <div className="rounded-xl border border-[var(--border)] bg-white p-6">
-                  <h3 className="mb-1 font-semibold text-[var(--foreground)]">GridEnergy</h3>
-                  <p className="text-sm text-[var(--muted-foreground)]">
-                    Energy storage systems from home batteries to grid-scale power parks.
+                <div className="rounded-lg border border-[var(--border)] bg-white p-6">
+                  <h3 className="mb-1 font-bold text-[var(--foreground)]">
+                    GridEnergy
+                  </h3>
+                  <p className="text-sm text-[var(--foreground-muted)]">
+                    Energy storage systems from home batteries to grid-scale
+                    power parks.
                   </p>
                 </div>
-                <div className="rounded-xl border border-[var(--border)] bg-white p-6">
-                  <h3 className="mb-1 font-semibold text-[var(--foreground)]">GridCharge</h3>
-                  <p className="text-sm text-[var(--muted-foreground)]">
-                    EV charging infrastructure for homes, offices, and public networks.
+                <div className="rounded-lg border border-[var(--border)] bg-white p-6">
+                  <h3 className="mb-1 font-bold text-[var(--foreground)]">
+                    GridCharge
+                  </h3>
+                  <p className="text-sm text-[var(--foreground-muted)]">
+                    EV charging infrastructure for homes, offices, and public
+                    networks.
                   </p>
                 </div>
-                <div className="rounded-xl border border-[var(--border)] bg-white p-6">
-                  <h3 className="mb-1 font-semibold text-[var(--foreground)]">GridDrive</h3>
-                  <p className="text-sm text-[var(--muted-foreground)]">
-                    OEM powertrain kits for two, three, and four-wheeled electric vehicles.
+                <div className="rounded-lg border border-[var(--border)] bg-white p-6">
+                  <h3 className="mb-1 font-bold text-[var(--foreground)]">
+                    GridDrive
+                  </h3>
+                  <p className="text-sm text-[var(--foreground-muted)]">
+                    OEM powertrain kits for two, three, and four-wheeled electric
+                    vehicles.
                   </p>
                 </div>
               </div>
@@ -83,44 +99,77 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Team placeholder */}
-      <section className="py-28">
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
-            Our Team
+      <section className="py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <h2 className="mb-12 text-center text-2xl font-bold tracking-tight text-[var(--foreground)]">
+            Timeline
           </h2>
-          <p className="mb-12 text-sm text-[var(--muted-foreground)]">
-            A small, focused team building the future of energy infrastructure in India.
-          </p>
-          <div className="grid gap-8 sm:grid-cols-3">
-            {["Leadership", "Engineering", "Operations"].map((dept) => (
-              <div
-                key={dept}
-                className="rounded-xl border border-[var(--border)] bg-[var(--muted)] p-8"
-              >
-                <div className="mx-auto mb-4 h-20 w-20 rounded-full bg-[var(--border)]" />
-                <p className="text-sm font-medium text-[var(--foreground)]">{dept}</p>
+          <div className="grid gap-8 md:grid-cols-3">
+            {timeline.map((item) => (
+              <div key={item.year} className="text-center">
+                <p className="text-3xl font-extrabold text-[var(--gp-primary)]">
+                  {item.year}
+                </p>
+                <p className="mt-2 text-sm text-[var(--foreground-muted)]">
+                  {item.event}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Details */}
-      <section className="border-t border-[var(--border)] bg-[var(--muted)] py-20">
+      <section className="bg-[var(--background-tint)] py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-[var(--foreground)]">
+            Our Team
+          </h2>
+          <p className="mb-12 text-sm text-[var(--foreground-muted)]">
+            A small, focused team building the future of energy infrastructure
+            in India.
+          </p>
+          <div className="grid gap-8 sm:grid-cols-3">
+            {["Leadership", "Engineering", "Operations"].map((dept) => (
+              <div
+                key={dept}
+                className="rounded-lg border border-[var(--border)] bg-white p-8"
+              >
+                <div className="mx-auto mb-4 h-20 w-20 rounded-full bg-[var(--background-tint)]" />
+                <p className="text-sm font-bold text-[var(--foreground)]">
+                  {dept}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-[var(--border)] py-16">
         <div className="mx-auto max-w-4xl px-6">
           <div className="grid gap-12 text-center md:grid-cols-3">
             <div>
-              <p className="text-sm font-semibold text-[var(--foreground)]">Headquarters</p>
-              <p className="mt-1 text-sm text-[var(--muted-foreground)]">Goa, India</p>
+              <p className="text-sm font-bold text-[var(--foreground)]">
+                Headquarters
+              </p>
+              <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+                Goa, India
+              </p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-[var(--foreground)]">Legal Entity</p>
-              <p className="mt-1 text-sm text-[var(--muted-foreground)]">DeltaEV Mobility Pvt Ltd</p>
+              <p className="text-sm font-bold text-[var(--foreground)]">
+                Legal Entity
+              </p>
+              <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+                DeltaEV Mobility Pvt Ltd
+              </p>
             </div>
             <div>
-              <p className="text-sm font-semibold text-[var(--foreground)]">Founded</p>
-              <p className="mt-1 text-sm text-[var(--muted-foreground)]">2026</p>
+              <p className="text-sm font-bold text-[var(--foreground)]">
+                Founded
+              </p>
+              <p className="mt-1 text-sm text-[var(--foreground-muted)]">
+                2026
+              </p>
             </div>
           </div>
         </div>

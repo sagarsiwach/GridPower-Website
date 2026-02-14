@@ -12,51 +12,54 @@ const solutions = [
   {
     icon: Home,
     title: "Home Charging",
+    tagline: "Charge at home. Wake up full.",
     description:
-      "Plug in when you arrive. Full by morning. Install once, charge forever. Works with any EV, any solar setup.",
+      "Install once, charge forever. Works with any EV, any solar setup.",
   },
   {
     icon: Building2,
     title: "Office Charging",
+    tagline: "EV charging as a workplace benefit.",
     description:
-      "Smart managed charging with load balancing. Add charging to your parking lot without the complexity. Access control and billing handled.",
+      "Smart managed charging with load balancing. Access control and billing handled.",
   },
   {
     icon: MapPin,
     title: "Destination Charging",
+    tagline: "Turn parking into revenue.",
     description:
-      "Hotels, malls, restaurants -- wherever your customers park. Offer charging as a service or amenity. Your pricing, your control.",
+      "Hotels, malls, restaurants -- wherever your customers park. Your pricing, your control.",
   },
   {
     icon: Truck,
     title: "Enterprise & Fleet",
+    tagline: "Manage your fleet's energy.",
     description:
-      "Depot charging for logistics and delivery fleets. High-power DC, scheduling, fleet management integration. Built for uptime.",
+      "Depot charging for logistics and delivery fleets. High-power DC, scheduling, fleet management integration.",
   },
 ];
 
 export default function ChargePage() {
   return (
     <main>
-      {/* Hero */}
       <section className="pb-20 pt-32 md:pb-28 md:pt-40">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             GridCharge
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-[var(--foreground)] md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] md:text-6xl">
             Charging infrastructure that
             <br />
             pays for itself.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--muted-foreground)]">
-            From home chargers to fleet depots. Open protocols, smart management, no vendor lock-in.
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
+            From home chargers to fleet depots. Open protocols, smart
+            management, no vendor lock-in.
           </p>
         </div>
       </section>
 
-      {/* Solutions Grid */}
-      <section className="border-t border-[var(--border)] bg-[var(--muted)] py-28">
+      <section className="border-t border-[var(--border)] bg-[var(--background-tint)] py-24">
         <div className="mx-auto max-w-5xl px-6">
           <div className="grid gap-6 md:grid-cols-2">
             {solutions.map((solution) => {
@@ -64,15 +67,18 @@ export default function ChargePage() {
               return (
                 <div
                   key={solution.title}
-                  className="rounded-2xl border border-[var(--border)] bg-white p-8"
+                  className="rounded-lg border border-[var(--border)] bg-white p-8"
                 >
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--muted)]">
-                    <Icon className="h-6 w-6 text-[var(--foreground)]" />
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--background-tint)]">
+                    <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
                   </div>
-                  <h2 className="mb-3 text-xl font-semibold text-[var(--foreground)]">
+                  <h2 className="mb-1 text-xl font-bold text-[var(--foreground)]">
                     {solution.title}
                   </h2>
-                  <p className="text-sm leading-relaxed text-[var(--muted-foreground)]">
+                  <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                    {solution.tagline}
+                  </p>
+                  <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                     {solution.description}
                   </p>
                 </div>
@@ -82,15 +88,14 @@ export default function ChargePage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-28 text-center">
+      <section className="py-24 text-center">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+          <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--foreground)]">
             Ready to electrify your location?
           </h2>
           <Link
             href="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[var(--gp-red)] px-7 py-3.5 text-sm font-medium text-white transition-all hover:bg-[var(--gp-red-dark)]"
+            className="inline-flex items-center gap-2 rounded-md bg-[var(--gp-cta)] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--gp-cta-hover)] cursor-pointer"
           >
             Request a Quote <ArrowRight className="h-4 w-4" />
           </Link>

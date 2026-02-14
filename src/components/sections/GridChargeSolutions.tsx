@@ -1,37 +1,41 @@
-import { ArrowRight, Home, Building2, MapPin, Truck } from "lucide-react";
+import { Home, Building2, MapPin, Truck } from "lucide-react";
 
 const solutions = [
   {
     icon: Home,
     title: "Home Charging",
-    description: "Plug in when you arrive. Full by morning.",
+    tagline: "Charge at home. Wake up full.",
+    description: "Install once, charge forever. Works with any EV, any solar setup.",
   },
   {
     icon: Building2,
     title: "Office Charging",
-    description: "Smart managed charging with load balancing.",
+    tagline: "EV charging as a workplace benefit.",
+    description: "Smart managed charging with load balancing. Access control and billing handled.",
   },
   {
     icon: MapPin,
     title: "Destination Charging",
-    description: "Turn parking into revenue.",
+    tagline: "Turn parking into revenue.",
+    description: "Hotels, malls, restaurants -- wherever your customers park. Your pricing, your control.",
   },
   {
     icon: Truck,
     title: "Enterprise & Fleet",
-    description: "Depot charging, fleet analytics, cost-per-km tracking.",
+    tagline: "Manage your fleet's energy.",
+    description: "Depot charging, fleet analytics, cost-per-km tracking. Built for uptime.",
   },
 ];
 
 export function GridChargeSolutions() {
   return (
-    <section className="bg-[var(--muted)] py-28 md:py-36">
+    <section className="bg-[var(--background-tint)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             GridCharge
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
             Charging infrastructure that
             <br className="hidden md:block" />
             pays for itself.
@@ -44,20 +48,20 @@ export function GridChargeSolutions() {
             return (
               <div
                 key={solution.title}
-                className="group rounded-2xl border border-[var(--border)] bg-white p-8 transition-all hover:border-[var(--gp-red)]/20 hover:shadow-lg"
+                className="group rounded-lg border border-[var(--border)] bg-white p-6 transition-all duration-200 hover:border-[var(--gp-primary)]/30 hover:shadow-md"
               >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--muted)]">
-                  <Icon className="h-6 w-6 text-[var(--foreground)]" />
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--background-tint)]">
+                  <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
+                <h3 className="mb-1 text-base font-bold text-[var(--foreground)]">
                   {solution.title}
                 </h3>
-                <p className="mb-6 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                  {solution.tagline}
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                   {solution.description}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--gp-red)] opacity-0 transition-opacity group-hover:opacity-100">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
-                </span>
               </div>
             );
           })}

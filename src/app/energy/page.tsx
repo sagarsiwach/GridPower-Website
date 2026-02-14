@@ -12,58 +12,61 @@ const solutions = [
   {
     icon: Home,
     title: "Home Energy",
+    tagline: "Store your sun.",
     description:
       "Store solar energy during the day, use it at night. Reduce your electricity bill by up to 80%. Stay powered when the grid goes down.",
   },
   {
     icon: Building2,
     title: "Office Energy",
+    tagline: "Cut peak demand.",
     description:
       "Peak shaving and demand management for commercial buildings. Lower your demand charges and meet sustainability targets with real data.",
   },
   {
     icon: Store,
     title: "Commercial Energy",
+    tagline: "Energy independence for hospitality.",
     description:
-      "Energy independence for restaurants, malls, and hospitality. Reliable backup power that pays for itself through savings.",
+      "Reliable backup power for restaurants, malls, and hospitality. Pays for itself through savings.",
   },
   {
     icon: Factory,
     title: "Industrial Energy",
+    tagline: "Reliable power. Zero downtime.",
     description:
-      "Uninterrupted power for manufacturing. Container-scale storage for factories and large facilities. Reliable backup and peak shaving.",
+      "Container-scale storage for factories and large facilities. Reliable backup and peak shaving at industrial scale.",
   },
   {
     icon: Zap,
     title: "Power Park",
+    tagline: "Grid-scale storage.",
     description:
-      "Grid-scale storage and microgrid solutions. Utility-grade energy storage for developers and power companies. Full documentation, serious capacity.",
+      "Utility-grade energy storage for developers and power companies. Full documentation, serious capacity.",
   },
 ];
 
 export default function EnergyPage() {
   return (
     <main>
-      {/* Hero */}
       <section className="pb-20 pt-32 md:pb-28 md:pt-40">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-4 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             GridEnergy
           </p>
-          <h1 className="text-4xl font-semibold tracking-tight text-[var(--foreground)] md:text-6xl">
+          <h1 className="text-4xl font-bold tracking-tight text-[var(--foreground)] md:text-6xl">
             Energy that works for you,
             <br />
             not against you.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--muted-foreground)]">
-            From home batteries to grid-scale power parks. Open technology, published specs, no
-            lock-in.
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--foreground-muted)]">
+            From home batteries to grid-scale power parks. Open technology,
+            published specs, no lock-in.
           </p>
         </div>
       </section>
 
-      {/* Solutions Grid */}
-      <section className="border-t border-[var(--border)] bg-[var(--muted)] py-28">
+      <section className="border-t border-[var(--border)] bg-[var(--background-tint)] py-24">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {solutions.map((solution) => {
@@ -71,15 +74,18 @@ export default function EnergyPage() {
               return (
                 <div
                   key={solution.title}
-                  className="rounded-2xl border border-[var(--border)] bg-white p-8"
+                  className="rounded-lg border border-[var(--border)] bg-white p-8"
                 >
-                  <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--muted)]">
-                    <Icon className="h-6 w-6 text-[var(--foreground)]" />
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--background-tint)]">
+                    <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
                   </div>
-                  <h2 className="mb-3 text-xl font-semibold text-[var(--foreground)]">
+                  <h2 className="mb-1 text-xl font-bold text-[var(--foreground)]">
                     {solution.title}
                   </h2>
-                  <p className="text-sm leading-relaxed text-[var(--muted-foreground)]">
+                  <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                    {solution.tagline}
+                  </p>
+                  <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                     {solution.description}
                   </p>
                 </div>
@@ -89,15 +95,14 @@ export default function EnergyPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-28 text-center">
+      <section className="py-24 text-center">
         <div className="mx-auto max-w-2xl px-6">
-          <h2 className="mb-4 text-2xl font-semibold tracking-tight text-[var(--foreground)]">
+          <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--foreground)]">
             Ready to take control of your energy?
           </h2>
           <Link
             href="/contact"
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[var(--gp-red)] px-7 py-3.5 text-sm font-medium text-white transition-all hover:bg-[var(--gp-red-dark)]"
+            className="inline-flex items-center gap-2 rounded-md bg-[var(--gp-cta)] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--gp-cta-hover)] cursor-pointer"
           >
             Request a Quote <ArrowRight className="h-4 w-4" />
           </Link>

@@ -1,45 +1,48 @@
-import { ArrowRight, Home, Building2, Store, Factory, Zap } from "lucide-react";
+import { Home, Building2, Store, Factory, Zap } from "lucide-react";
 
 const solutions = [
   {
     icon: Home,
-    title: "Home Energy",
-    description: "Store solar energy. Reduce bills by up to 80%.",
+    title: "Home",
+    tagline: "Store your sun.",
+    description: "Store solar energy during the day, use it at night. Reduce your bill by up to 80%.",
   },
   {
     icon: Building2,
-    title: "Office Energy",
-    description: "Peak shaving and demand management.",
+    title: "Office",
+    tagline: "Cut peak demand.",
+    description: "Peak shaving and demand management for commercial buildings.",
   },
   {
     icon: Store,
-    title: "Commercial Energy",
-    description: "Energy independence for restaurants, malls, hospitality.",
+    title: "Commercial",
+    tagline: "Energy independence for hospitality.",
+    description: "Reliable backup power for restaurants, malls, and hotels that pays for itself.",
   },
   {
     icon: Factory,
-    title: "Industrial Energy",
-    description: "Uninterrupted power for manufacturing.",
+    title: "Industrial",
+    tagline: "Reliable power. Zero downtime.",
+    description: "Container-scale storage for factories and large facilities.",
   },
   {
     icon: Zap,
     title: "Power Park",
-    description: "Grid-scale storage and microgrid solutions.",
+    tagline: "Grid-scale storage.",
+    description: "Utility-grade energy storage for developers and power companies.",
   },
 ];
 
 export function GridEnergySolutions() {
   return (
-    <section id="solutions" className="bg-white py-28 md:py-36">
+    <section id="solutions" className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             GridEnergy
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-5xl">
-            Energy that works for you,
-            <br className="hidden md:block" />
-            not against you.
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
+            Energy storage, every scale.
           </h2>
         </div>
 
@@ -49,20 +52,20 @@ export function GridEnergySolutions() {
             return (
               <div
                 key={solution.title}
-                className="group rounded-2xl border border-[var(--border)] bg-white p-8 transition-all hover:border-[var(--gp-red)]/20 hover:shadow-lg"
+                className="group rounded-lg border border-[var(--border)] bg-white p-6 transition-all duration-200 hover:border-[var(--gp-primary)]/30 hover:shadow-md"
               >
-                <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--muted)]">
-                  <Icon className="h-6 w-6 text-[var(--foreground)]" />
+                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--background-tint)]">
+                  <Icon className="h-5 w-5 text-[var(--gp-primary)]" />
                 </div>
-                <h3 className="mb-2 text-lg font-semibold text-[var(--foreground)]">
+                <h3 className="mb-1 text-base font-bold text-[var(--foreground)]">
                   {solution.title}
                 </h3>
-                <p className="mb-6 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                  {solution.tagline}
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                   {solution.description}
                 </p>
-                <span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--gp-red)] opacity-0 transition-opacity group-hover:opacity-100">
-                  Learn More <ArrowRight className="h-3.5 w-3.5" />
-                </span>
               </div>
             );
           })}

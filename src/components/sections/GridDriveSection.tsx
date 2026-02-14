@@ -1,49 +1,50 @@
-import { ArrowRight } from "lucide-react";
-
 const vehicles = [
   {
     title: "Two-Wheeler",
-    description: "Hub motors, controllers, and battery packs for electric scooters and motorcycles.",
+    description:
+      "Hub motors, controllers, and battery packs for electric scooters and motorcycles. Complete powertrain development. Battery pack integration.",
   },
   {
     title: "Three-Wheeler",
-    description: "Complete powertrain kits for passenger and cargo e-rickshaws.",
+    description:
+      "Complete powertrain kits for passenger and cargo e-rickshaws. Optimized for Indian road conditions and duty cycles.",
   },
   {
     title: "Four-Wheeler",
-    description: "High-voltage systems for cars, vans, and light commercial vehicles.",
+    description:
+      "High-voltage systems for cars, vans, and light commercial vehicles. Motors, inverters, BMS, and battery packs -- all open spec.",
   },
 ];
 
 export function GridDriveSection() {
   return (
-    <section className="bg-white py-28 md:py-36">
+    <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16">
-          <p className="mb-3 text-sm font-medium uppercase tracking-[0.15em] text-[var(--gp-red)]">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--gp-primary)]">
             GridDrive
           </p>
-          <h2 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
             Electrify any vehicle.
           </h2>
+          <p className="mt-4 max-w-lg text-base text-[var(--foreground-muted)]">
+            Complete powertrain development. Battery pack integration.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
           {vehicles.map((vehicle) => (
             <div
               key={vehicle.title}
-              className="group rounded-2xl border border-[var(--border)] p-10 transition-all hover:border-[var(--gp-red)]/20 hover:shadow-lg"
+              className="group rounded-lg border border-[var(--border)] p-8 transition-all duration-200 hover:border-[var(--gp-primary)]/30 hover:shadow-md"
             >
-              <div className="mb-8 h-48 rounded-xl bg-[var(--muted)]" />
-              <h3 className="mb-3 text-2xl font-semibold text-[var(--foreground)]">
+              <div className="mb-8 h-48 rounded-md bg-[var(--background-tint)]" />
+              <h3 className="mb-3 text-2xl font-bold text-[var(--foreground)]">
                 {vehicle.title}
               </h3>
-              <p className="mb-6 text-sm leading-relaxed text-[var(--muted-foreground)]">
+              <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                 {vehicle.description}
               </p>
-              <span className="inline-flex items-center gap-1 text-sm font-medium text-[var(--gp-red)] transition-colors group-hover:underline">
-                Learn More <ArrowRight className="h-3.5 w-3.5" />
-              </span>
             </div>
           ))}
         </div>

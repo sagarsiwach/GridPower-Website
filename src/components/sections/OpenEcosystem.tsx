@@ -4,32 +4,35 @@ const pillars = [
   {
     icon: Puzzle,
     title: "Open Ecosystem",
+    tagline: "Use what you have.",
     description:
-      "Use what you have. Our products work with existing infrastructure, solar setups, and third-party hardware.",
+      "Our products work with existing infrastructure, solar setups, and third-party hardware.",
   },
   {
     icon: Eye,
     title: "Full Transparency",
+    tagline: "Know what you're buying.",
     description:
-      "Know what you're buying. Published specs, open documentation, and no hidden costs.",
+      "Published specs, open documentation, and no hidden costs.",
   },
   {
     icon: Unlock,
     title: "No Lock-in",
+    tagline: "Your data stays yours.",
     description:
-      "Your data stays yours. Export anytime, integrate anywhere, switch whenever you want.",
+      "Export anytime, integrate anywhere, switch whenever you want.",
   },
 ];
 
 export function OpenEcosystem() {
   return (
-    <section className="bg-white py-28 md:py-36">
+    <section className="bg-white py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-semibold tracking-tight text-[var(--foreground)] md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] md:text-5xl">
             Built different.
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-[var(--muted-foreground)]">
+          <p className="mx-auto mt-4 max-w-lg text-base text-[var(--foreground-muted)]">
             Three principles that set GridPower apart from every other energy company.
           </p>
         </div>
@@ -39,13 +42,16 @@ export function OpenEcosystem() {
             const Icon = pillar.icon;
             return (
               <div key={pillar.title} className="text-center">
-                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--muted)]">
-                  <Icon className="h-6 w-6 text-[var(--foreground)]" />
+                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-[var(--background-tint)]">
+                  <Icon className="h-6 w-6 text-[var(--gp-primary)]" />
                 </div>
-                <h3 className="mb-3 text-xl font-semibold text-[var(--foreground)]">
+                <h3 className="mb-1 text-xl font-bold text-[var(--foreground)]">
                   {pillar.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-[var(--muted-foreground)]">
+                <p className="mb-3 text-sm font-semibold text-[var(--gp-primary)]">
+                  {pillar.tagline}
+                </p>
+                <p className="text-sm leading-relaxed text-[var(--foreground-muted)]">
                   {pillar.description}
                 </p>
               </div>
