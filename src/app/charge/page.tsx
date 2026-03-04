@@ -1,104 +1,59 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Home, Building2, MapPin, Truck } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "GridCharge | EV Charging Solutions",
-  description:
-    "EV charging infrastructure for homes, offices, destinations, and fleets. Smart managed charging with load balancing.",
+  title: "GridCharge — EV Charging | GridPower",
+  description: "EV charging for homes, destinations, and enterprise fleets. OCPP-compliant.",
 };
 
-const solutions = [
-  {
-    icon: Home,
-    title: "Home Charging",
-    tagline: "Charge at home. Wake up full.",
-    description:
-      "Install once, charge forever. Works with any EV, any solar setup.",
-  },
-  {
-    icon: Building2,
-    title: "Office Charging",
-    tagline: "EV charging as a workplace benefit.",
-    description:
-      "Smart managed charging with load balancing. Access control and billing handled.",
-  },
-  {
-    icon: MapPin,
-    title: "Destination Charging",
-    tagline: "Turn parking into revenue.",
-    description:
-      "Hotels, malls, restaurants -- wherever your customers park. Your pricing, your control.",
-  },
-  {
-    icon: Truck,
-    title: "Enterprise & Fleet",
-    tagline: "Manage your fleet's energy.",
-    description:
-      "Depot charging for logistics and delivery fleets. High-power DC, scheduling, fleet management integration.",
-  },
+const segments = [
+  { title: "Home Charging", href: "/charge/home", desc: "Charge at home. Wake up full.", sub: "7.4 kW AC wallbox" },
+  { title: "Destination", href: "/charge/destination", desc: "Turn parking into revenue.", sub: "Hotels, malls, offices" },
+  { title: "Enterprise & Fleet", href: "/charge/enterprise", desc: "Manage your fleet's energy.", sub: "Depot charging + EMS" },
 ];
 
 export default function ChargePage() {
   return (
     <main>
-      <section className="pb-20 pt-32 md:pb-28 md:pt-40">
+      <section className="bg-[var(--color-dark)] pb-20 pt-32 md:pb-28 md:pt-44">
         <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-gp-red)]">
-            GridCharge
-          </p>
-          <h1 className="text-4xl font-bold tracking-tight text-[var(--color-fg)] md:text-6xl">
-            Charging infrastructure that
-            <br />
-            pays for itself.
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-gp-red)]">GridCharge</p>
+          <h1 className="text-4xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+            Charging infrastructure that pays for itself.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-[var(--color-fg-muted)]">
-            From home chargers to fleet depots. Open protocols, smart
-            management, no vendor lock-in.
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/50">
+            OCPP-compliant EV charging hardware managed by the GridPower platform. Home to grid-scale.
           </p>
         </div>
       </section>
 
-      <section className="border-t border-[var(--color-border)] bg-[var(--color-bg-tint)] py-24">
+      <section className="bg-[var(--color-bg)] py-20">
         <div className="mx-auto max-w-5xl px-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            {solutions.map((solution) => {
-              const Icon = solution.icon;
-              return (
-                <div
-                  key={solution.title}
-                  className="rounded-lg border border-[var(--color-border)] bg-white p-8"
-                >
-                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--color-bg-tint)]">
-                    <Icon className="h-5 w-5 text-[var(--color-gp-red)]" />
-                  </div>
-                  <h2 className="mb-1 text-xl font-bold text-[var(--color-fg)]">
-                    {solution.title}
-                  </h2>
-                  <p className="mb-3 text-sm font-semibold text-[var(--color-gp-red)]">
-                    {solution.tagline}
-                  </p>
-                  <p className="text-sm leading-relaxed text-[var(--color-fg-muted)]">
-                    {solution.description}
-                  </p>
+          <div className="grid gap-6 md:grid-cols-3">
+            {segments.map((s) => (
+              <Link
+                key={s.href}
+                href={s.href}
+                className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-6 transition-all hover:border-[var(--color-border-strong)] hover:shadow-sm"
+              >
+                <h2 className="text-base font-bold text-[var(--color-fg)]">{s.title}</h2>
+                <p className="mt-1 text-sm font-medium text-[var(--color-gp-red)]">{s.desc}</p>
+                <p className="mt-3 text-sm text-[var(--color-fg-muted)]">{s.sub}</p>
+                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-[var(--color-fg-subtle)] group-hover:text-[var(--color-fg-muted)]">
+                  Learn more <ArrowRight className="h-3 w-3" />
                 </div>
-              );
-            })}
+              </Link>
+            ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-24 text-center">
-        <div className="mx-auto max-w-2xl px-6">
-          <h2 className="mb-6 text-2xl font-bold tracking-tight text-[var(--color-fg)]">
-            Ready to electrify your location?
-          </h2>
-          <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 rounded-md bg-[var(--color-gp-red)] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
-          >
-            Request a Quote <ArrowRight className="h-4 w-4" />
-          </Link>
+          <div className="mt-12 text-center">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 rounded-md bg-[var(--color-gp-red)] px-8 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--color-gp-red-hover)]"
+            >
+              Request a Quote <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
         </div>
       </section>
     </main>
