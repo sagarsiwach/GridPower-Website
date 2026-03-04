@@ -2,41 +2,71 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | GridPower",
+  description: "How GridPower collects, uses, and protects your data.",
 };
 
 export default function PrivacyPage() {
   return (
-    <main className="bg-[var(--color-bg)] pb-32 pt-32">
-      <div className="mx-auto max-w-3xl px-6">
-        <h1 className="text-3xl font-bold text-[var(--color-fg)]">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-[var(--color-fg-subtle)]">Last updated: March 2026</p>
-        <div className="mt-10 flex flex-col gap-8 text-sm leading-relaxed text-[var(--color-fg-muted)]">
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">1. Data Controller</h2>
-            <p>DeltaEV Mobility Private Limited (&ldquo;GridPower&rdquo;, &ldquo;we&rdquo;, &ldquo;our&rdquo;) is the data controller for information collected through gridpower.co.in.</p>
-          </section>
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">2. What We Collect</h2>
-            <p>When you submit a contact form or sign up for early access, we collect your email address and any information you voluntarily provide. We do not collect browsing data beyond standard server logs.</p>
-          </section>
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">3. How We Use It</h2>
-            <p>We use your contact information to respond to your enquiry or send you product updates you requested. We do not sell your data or share it with third parties for marketing purposes.</p>
-          </section>
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">4. Your Rights</h2>
-            <p>You may request deletion of your data at any time by emailing privacy@gridpower.co.in. We will delete or anonymise your data within 30 days.</p>
-          </section>
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">5. Cookies</h2>
-            <p>This website does not use tracking cookies. No third-party analytics scripts are loaded.</p>
-          </section>
-          <section>
-            <h2 className="mb-3 text-base font-bold text-[var(--color-fg)]">6. Contact</h2>
-            <p>Privacy questions: privacy@gridpower.co.in</p>
-          </section>
+    <main>
+      <section className="pb-24 pt-32 md:pb-32 md:pt-44">
+        <div className="mx-auto max-w-3xl px-6">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-gp-red)]">
+            Legal
+          </p>
+          <h1 className="mb-8 text-4xl font-bold tracking-tight text-[var(--color-fg)] md:text-5xl">
+            Privacy Policy
+          </h1>
+          <div className="space-y-6 text-sm leading-relaxed text-[var(--color-fg-muted)]">
+            <p>
+              <strong className="text-[var(--color-fg)]">Effective Date:</strong> March 2026
+            </p>
+            <p>
+              DeltaEV Mobility Private Limited (&quot;GridPower&quot;, &quot;we&quot;, &quot;us&quot;) is
+              committed to protecting your privacy. This policy explains how we collect,
+              use, and safeguard your information.
+            </p>
+
+            <h2 className="text-lg font-bold text-[var(--color-fg)]">1. Information We Collect</h2>
+            <p>
+              We collect information you provide directly (name, email, company) and
+              data generated through use of our products (energy consumption, charging
+              sessions, device telemetry).
+            </p>
+
+            <h2 className="text-lg font-bold text-[var(--color-fg)]">2. How We Use Your Data</h2>
+            <p>
+              Your data is used to deliver and improve our services, provide customer
+              support, generate usage analytics, and send service-related communications.
+              We do not sell your data to third parties.
+            </p>
+
+            <h2 className="text-lg font-bold text-[var(--color-fg)]">3. Data Storage &amp; Security</h2>
+            <p>
+              Data is stored on secure servers with encryption at rest and in transit.
+              Access is restricted to authorized personnel. We conduct regular security
+              assessments.
+            </p>
+
+            <h2 className="text-lg font-bold text-[var(--color-fg)]">4. Your Rights</h2>
+            <p>
+              You may request access to, correction of, or deletion of your personal
+              data at any time. Energy and usage data can be exported through the
+              GridPower Console or API.
+            </p>
+
+            <h2 className="text-lg font-bold text-[var(--color-fg)]">5. Contact</h2>
+            <p>
+              For privacy-related inquiries, contact us at privacy@gridpower.co.in.
+            </p>
+
+            <p className="border-t border-[var(--color-border)] pt-6">
+              <strong className="text-[var(--color-fg)]">DeltaEV Mobility Private Limited</strong>
+              <br />
+              Plot No. S-153, Phase III, Verna Industrial Estate, Goa - 403722
+            </p>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

@@ -23,6 +23,9 @@ const routes = [
   "/about",
   "/contact",
   "/signup",
+  "/terms",
+  "/privacy",
+  "/brand",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
