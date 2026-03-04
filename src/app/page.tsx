@@ -1,12 +1,25 @@
-import Header from "@/components/ui/Header";
-import { GridContainer } from "@/components/grid";
-import { gridData } from "@/lib/grid-data";
+import { Hero } from "@/components/sections/Hero";
+import { ProblemSection } from "@/components/sections/ProblemSection";
+import { EnergyFlowSection } from "@/components/sections/EnergyFlowSection";
+import { GridEnergySolutions } from "@/components/sections/GridEnergySolutions";
+import { GridChargeSolutions } from "@/components/sections/GridChargeSolutions";
+import { GridDriveSection } from "@/components/sections/GridDriveSection";
+import { PlatformSection } from "@/components/sections/PlatformSection";
+import { OpenEcosystem } from "@/components/sections/OpenEcosystem";
+import { ContactCTA } from "@/components/sections/ContactCTA";
 
 export default function Home() {
   return (
-    <main className="flex h-screen flex-col gap-2 bg-gray-200 p-4">
-      <Header />
-      <GridContainer items={gridData} />
+    <main>
+      <Hero />
+      <ProblemSection />
+      <EnergyFlowSection />
+      <GridEnergySolutions />
+      <GridChargeSolutions />
+      <GridDriveSection />
+      <PlatformSection />
+      <OpenEcosystem />
+      <ContactCTA />
     </main>
   );
 }

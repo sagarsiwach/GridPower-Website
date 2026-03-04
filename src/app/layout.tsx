@@ -1,27 +1,29 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+import { Header } from "@/components/ui/Header";
+import { Footer } from "@/components/ui/Footer";
 import "./globals.css";
 
-const googleSansFlex = localFont({
-  src: "../fonts/GoogleSansFlex-Variable.ttf",
-  variable: "--font-google-sans-flex",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
-  title: "GridPower - Solar Energy Solutions",
+  title: "GridPower | The Open Energy Platform",
   description:
-    "GridPower provides residential, workplace, and industrial solar energy solutions. Powering a sustainable future.",
+    "India generates power. We make sure it's never wasted. EV charging, energy storage, and powertrain — one open ecosystem.",
+  openGraph: {
+    title: "GridPower | The Open Energy Platform",
+    description: "India generates power. We make sure it's never wasted.",
+    type: "website",
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={googleSansFlex.variable}>
-      <body className="antialiased">{children}</body>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
