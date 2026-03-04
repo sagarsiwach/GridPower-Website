@@ -2,65 +2,35 @@ import { defineField, defineType } from "sanity";
 
 export const segment = defineType({
   name: "segment",
-  title: "Segment",
+  title: "Segment Page",
   type: "document",
   fields: [
     defineField({
-      name: "name",
-      title: "Name",
+      name: "vertical",
+      title: "Vertical",
       type: "string",
-      validation: (rule) => rule.required(),
+      options: { list: ["GridEnergy", "GridCharge", "GridDrive"] },
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "name", maxLength: 96 },
-      validation: (rule) => rule.required(),
+      options: { source: "title" },
     }),
+    defineField({ name: "title", title: "Title", type: "string" }),
+    defineField({ name: "headline", title: "Headline", type: "string" }),
+    defineField({ name: "subline", title: "Subline", type: "text" }),
     defineField({
-      name: "brand",
-      title: "Brand",
-      type: "string",
-      options: {
-        list: [
-          { title: "GridEnergy", value: "gridenergy" },
-          { title: "GridCharge", value: "gridcharge" },
-          { title: "GridDrive", value: "griddrive" },
-        ],
-      },
-      validation: (rule) => rule.required(),
-    }),
-    defineField({
-      name: "tagline",
-      title: "Tagline",
-      type: "string",
-    }),
-    defineField({
-      name: "description",
-      title: "Description",
-      type: "text",
-      rows: 4,
-    }),
-    defineField({
-      name: "image",
-      title: "Image",
+      name: "heroImage",
+      title: "Hero Image",
       type: "image",
       options: { hotspot: true },
     }),
     defineField({
-      name: "href",
-      title: "Page Path",
-      type: "string",
-      description: "Route path, e.g. /energy/home",
-    }),
-    defineField({
-      name: "order",
-      title: "Sort Order",
-      type: "number",
+      name: "products",
+      title: "Products in this segment",
+      type: "array",
+      of: [{ type: "reference", to: [{ type: "product" }] }],
     }),
   ],
-  preview: {
-    select: { title: "name", subtitle: "brand", media: "image" },
-  },
 });
