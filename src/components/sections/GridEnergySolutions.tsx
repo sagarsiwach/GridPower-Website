@@ -1,74 +1,63 @@
-import { Home, Building2, Store, Factory, Zap } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const solutions = [
+const segments = [
   {
-    icon: Home,
-    title: "Home",
-    tagline: "Store your sun.",
-    description: "Store solar energy during the day, use it at night. Reduce your bill by up to 80%.",
+    title: "Home Energy",
+    href: "/energy/home",
+    desc: "Store your sun. Power your home.",
+    detail: "5–21 kWh residential storage. Works with any solar setup.",
   },
   {
-    icon: Building2,
-    title: "Office",
-    tagline: "Cut peak demand.",
-    description: "Peak shaving and demand management for commercial buildings.",
+    title: "Office Energy",
+    href: "/energy/office",
+    desc: "Cut peak demand. Cut your bills.",
+    detail: "Commercial ESS for offices and retail. ROI in 3–5 years.",
   },
   {
-    icon: Store,
-    title: "Commercial",
-    tagline: "Energy independence for hospitality.",
-    description: "Reliable backup power for restaurants, malls, and hotels that pays for itself.",
+    title: "Industry",
+    href: "/energy/industry",
+    desc: "Reliable power. Zero downtime.",
+    detail: "Industrial-grade storage. Backup + demand management.",
   },
   {
-    icon: Factory,
-    title: "Industrial",
-    tagline: "Reliable power. Zero downtime.",
-    description: "Container-scale storage for factories and large facilities.",
-  },
-  {
-    icon: Zap,
     title: "Power Park",
-    tagline: "Grid-scale storage.",
-    description: "Utility-grade energy storage for developers and power companies.",
+    href: "/energy/power-park",
+    desc: "Grid-scale storage. Your terms.",
+    detail: "Containerized MW-scale BESS for developers and utilities.",
   },
 ];
 
 export function GridEnergySolutions() {
   return (
-    <section id="solutions" className="bg-white py-24 md:py-32">
+    <section className="bg-[var(--color-bg-subtle)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-gp-red)]">
+        <div className="mb-12">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-gp-red)]">
             GridEnergy
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-[var(--color-fg)] md:text-5xl">
-            Energy storage, every scale.
+            Storage for every scale.
           </h2>
+          <p className="mt-4 max-w-2xl text-lg text-[var(--color-fg-muted)]">
+            From a 5 kWh home battery to a 10 MW power park — one open platform, four segments.
+          </p>
         </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
-          {solutions.map((solution) => {
-            const Icon = solution.icon;
-            return (
-              <div
-                key={solution.title}
-                className="group rounded-lg border border-[var(--color-border)] bg-white p-6 transition-all duration-200 hover:border-[var(--color-gp-red)]/30 hover:shadow-md"
-              >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--color-bg-tint)]">
-                  <Icon className="h-5 w-5 text-[var(--color-gp-red)]" />
-                </div>
-                <h3 className="mb-1 text-base font-bold text-[var(--color-fg)]">
-                  {solution.title}
-                </h3>
-                <p className="mb-3 text-sm font-semibold text-[var(--color-gp-red)]">
-                  {solution.tagline}
-                </p>
-                <p className="text-sm leading-relaxed text-[var(--color-fg-muted)]">
-                  {solution.description}
-                </p>
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {segments.map((seg) => (
+            <Link
+              key={seg.href}
+              href={seg.href}
+              className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg)] p-6 transition-all hover:border-[var(--color-border-strong)] hover:shadow-sm"
+            >
+              <h3 className="text-base font-bold text-[var(--color-fg)]">{seg.title}</h3>
+              <p className="mt-1 text-sm font-medium text-[var(--color-gp-red)]">{seg.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-fg-muted)]">{seg.detail}</p>
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-[var(--color-fg-subtle)] group-hover:text-[var(--color-fg-muted)]">
+                Learn more <ArrowRight className="h-3 w-3" />
               </div>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

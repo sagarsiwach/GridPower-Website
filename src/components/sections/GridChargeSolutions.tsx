@@ -1,70 +1,57 @@
-import { Home, Building2, MapPin, Truck } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-const solutions = [
+const segments = [
   {
-    icon: Home,
     title: "Home Charging",
-    tagline: "Charge at home. Wake up full.",
-    description: "Install once, charge forever. Works with any EV, any solar setup.",
+    href: "/charge/home",
+    desc: "Charge at home. Wake up full.",
+    detail: "7.4 kW AC wallbox. Works with all EVs. Smart scheduling.",
   },
   {
-    icon: Building2,
-    title: "Office Charging",
-    tagline: "EV charging as a workplace benefit.",
-    description: "Smart managed charging with load balancing. Access control and billing handled.",
-  },
-  {
-    icon: MapPin,
     title: "Destination Charging",
-    tagline: "Turn parking into revenue.",
-    description: "Hotels, malls, restaurants -- wherever your customers park. Your pricing, your control.",
+    href: "/charge/destination",
+    desc: "Turn parking into revenue.",
+    detail: "Hotels, malls, offices. OCPP-compliant. Paid charging.",
   },
   {
-    icon: Truck,
     title: "Enterprise & Fleet",
-    tagline: "Manage your fleet's energy.",
-    description: "Depot charging, fleet analytics, cost-per-km tracking. Built for uptime.",
+    href: "/charge/enterprise",
+    desc: "Manage your fleet's energy.",
+    detail: "Fleet depot charging + energy management. Schedulable, metered.",
   },
 ];
 
 export function GridChargeSolutions() {
   return (
-    <section className="bg-[var(--color-bg-tint)] py-24 md:py-32">
+    <section className="bg-[var(--color-bg)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-[var(--color-gp-red)]">
+        <div className="mb-12">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-gp-red)]">
             GridCharge
           </p>
           <h2 className="text-3xl font-bold tracking-tight text-[var(--color-fg)] md:text-5xl">
-            Charging infrastructure that
-            <br className="hidden md:block" />
-            pays for itself.
+            Charging that pays for itself.
           </h2>
+          <p className="mt-4 max-w-2xl text-lg text-[var(--color-fg-muted)]">
+            OCPP-compliant EV charging hardware managed by the GridPower platform.
+          </p>
         </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {solutions.map((solution) => {
-            const Icon = solution.icon;
-            return (
-              <div
-                key={solution.title}
-                className="group rounded-lg border border-[var(--color-border)] bg-white p-6 transition-all duration-200 hover:border-[var(--color-gp-red)]/30 hover:shadow-md"
-              >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-md bg-[var(--color-bg-tint)]">
-                  <Icon className="h-5 w-5 text-[var(--color-gp-red)]" />
-                </div>
-                <h3 className="mb-1 text-base font-bold text-[var(--color-fg)]">
-                  {solution.title}
-                </h3>
-                <p className="mb-3 text-sm font-semibold text-[var(--color-gp-red)]">
-                  {solution.tagline}
-                </p>
-                <p className="text-sm leading-relaxed text-[var(--color-fg-muted)]">
-                  {solution.description}
-                </p>
+        <div className="grid gap-4 md:grid-cols-3">
+          {segments.map((seg) => (
+            <Link
+              key={seg.href}
+              href={seg.href}
+              className="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-6 transition-all hover:border-[var(--color-border-strong)] hover:shadow-sm"
+            >
+              <h3 className="text-base font-bold text-[var(--color-fg)]">{seg.title}</h3>
+              <p className="mt-1 text-sm font-medium text-[var(--color-gp-red)]">{seg.desc}</p>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-fg-muted)]">{seg.detail}</p>
+              <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-[var(--color-fg-subtle)] group-hover:text-[var(--color-fg-muted)]">
+                Learn more <ArrowRight className="h-3 w-3" />
               </div>
-            );
-          })}
+            </Link>
+          ))}
         </div>
       </div>
     </section>

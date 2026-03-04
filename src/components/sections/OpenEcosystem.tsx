@@ -1,62 +1,40 @@
-import { Puzzle, Eye, Unlock } from "lucide-react";
-
 const pillars = [
   {
-    icon: Puzzle,
-    title: "Open Ecosystem",
-    tagline: "Use what you have.",
-    description:
-      "Our products work with existing infrastructure, solar setups, and third-party hardware.",
+    title: "Use what you have.",
+    desc: "GridPower works with any solar panels, any inverter, any EV. Open protocols mean you're never locked into our hardware.",
   },
   {
-    icon: Eye,
-    title: "Full Transparency",
-    tagline: "Know what you're buying.",
-    description:
-      "Published specs, open documentation, and no hidden costs.",
+    title: "Know what you're buying.",
+    desc: "Full transparency on specs, pricing, and data flows. No proprietary black boxes. Open architecture means you can audit everything.",
   },
   {
-    icon: Unlock,
-    title: "No Lock-in",
-    tagline: "Your data stays yours.",
-    description:
-      "Export anytime, integrate anywhere, switch whenever you want.",
+    title: "Your data stays yours.",
+    desc: "We don't sell your energy data. You control access. Your consumption patterns, your asset data — owned by you.",
   },
 ];
 
 export function OpenEcosystem() {
   return (
-    <section className="bg-white py-24 md:py-32">
+    <section className="bg-[var(--color-bg)] py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-[var(--color-fg)] md:text-5xl">
-            Built different.
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-[var(--color-fg-muted)]">
-            Three principles that set GridPower apart from every other energy company.
+        <div className="mb-12 text-center">
+          <p className="mb-4 text-xs font-bold uppercase tracking-widest text-[var(--color-gp-red)]">
+            Open Ecosystem
           </p>
+          <h2 className="text-3xl font-bold tracking-tight text-[var(--color-fg)] md:text-5xl">
+            Built different. By design.
+          </h2>
         </div>
-
-        <div className="grid gap-8 md:grid-cols-3">
-          {pillars.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <div key={pillar.title} className="text-center">
-                <div className="mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-lg bg-[var(--color-bg-tint)]">
-                  <Icon className="h-6 w-6 text-[var(--color-gp-red)]" />
-                </div>
-                <h3 className="mb-1 text-xl font-bold text-[var(--color-fg)]">
-                  {pillar.title}
-                </h3>
-                <p className="mb-3 text-sm font-semibold text-[var(--color-gp-red)]">
-                  {pillar.tagline}
-                </p>
-                <p className="text-sm leading-relaxed text-[var(--color-fg-muted)]">
-                  {pillar.description}
-                </p>
-              </div>
-            );
-          })}
+        <div className="grid gap-6 md:grid-cols-3">
+          {pillars.map((p) => (
+            <div
+              key={p.title}
+              className="rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-subtle)] p-8"
+            >
+              <h3 className="text-xl font-bold text-[var(--color-fg)]">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-[var(--color-fg-muted)]">{p.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
