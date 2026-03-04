@@ -6,13 +6,13 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="interest"
-          className="mb-1.5 block text-sm font-bold text-fg"
+          className="mb-1.5 block text-sm font-bold text-[var(--color-fg)]"
         >
           Interest Area
         </label>
         <select
           id="interest"
-          className="w-full rounded-md border border-border-light bg-white px-4 py-3 text-sm text-fg outline-none transition-colors duration-200 focus:border-gp-primary cursor-pointer"
+          className="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-fg)] outline-none transition-colors duration-200 focus:border-[var(--color-gp-red)] cursor-pointer"
           defaultValue=""
         >
           <option value="" disabled>
@@ -30,7 +30,7 @@ export function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="mb-1.5 block text-sm font-bold text-fg"
+          className="mb-1.5 block text-sm font-bold text-[var(--color-fg)]"
         >
           Email
         </label>
@@ -38,14 +38,14 @@ export function ContactForm() {
           id="email"
           type="email"
           placeholder="you@company.com"
-          className="w-full rounded-md border border-border-light bg-white px-4 py-3 text-sm text-fg placeholder-fg-muted outline-none transition-colors duration-200 focus:border-gp-primary"
+          className="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-fg)] placeholder-[var(--color-fg-muted)] outline-none transition-colors duration-200 focus:border-[var(--color-gp-red)]"
         />
       </div>
 
       <div>
         <label
           htmlFor="message"
-          className="mb-1.5 block text-sm font-bold text-fg"
+          className="mb-1.5 block text-sm font-bold text-[var(--color-fg)]"
         >
           Message
         </label>
@@ -53,13 +53,13 @@ export function ContactForm() {
           id="message"
           rows={5}
           placeholder="Tell us about your requirements..."
-          className="w-full resize-none rounded-md border border-border-light bg-white px-4 py-3 text-sm text-fg placeholder-fg-muted outline-none transition-colors duration-200 focus:border-gp-primary"
+          className="w-full resize-none rounded-md border border-[var(--color-border)] bg-white px-4 py-3 text-sm text-[var(--color-fg)] placeholder-[var(--color-fg-muted)] outline-none transition-colors duration-200 focus:border-[var(--color-gp-red)]"
         />
       </div>
 
       <button
         type="submit"
-        className="w-full rounded-md bg-gp-cta px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
+        className="w-full rounded-md bg-[var(--color-gp-red)] px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
       >
         Request a Quote
       </button>
