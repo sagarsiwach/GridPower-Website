@@ -2,7 +2,7 @@
 
 export function ContactCTA() {
   return (
-    <section className="bg-dark py-24 md:py-32">
+    <section className="bg-[var(--color-dark)] py-24 md:py-32">
       <div className="mx-auto max-w-2xl px-6 text-center">
         <h2 className="mb-4 text-3xl font-bold tracking-tight text-white md:text-5xl">
           Tell us what you need.
@@ -16,7 +16,7 @@ export function ContactCTA() {
           onSubmit={(e) => e.preventDefault()}
         >
           <select
-            className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white outline-none transition-colors duration-200 focus:border-gp-primary cursor-pointer [&>option]:text-black"
+            className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white outline-none transition-colors duration-200 focus:border-[var(--color-gp-red)] cursor-pointer [&>option]:text-black"
             defaultValue=""
             aria-label="Interest area"
           >
@@ -35,12 +35,12 @@ export function ContactCTA() {
             type="email"
             placeholder="Your email address"
             aria-label="Email address"
-            className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/40 outline-none transition-colors duration-200 focus:border-gp-primary"
+            className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-3.5 text-sm text-white placeholder-white/40 outline-none transition-colors duration-200 focus:border-[var(--color-gp-red)]"
           />
 
           <button
             type="submit"
-            className="w-full rounded-md bg-gp-cta px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
+            className="w-full rounded-md bg-[var(--color-gp-red)] px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
           >
             Get in Touch
           </button>

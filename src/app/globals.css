@@ -3,28 +3,63 @@
 @source "../components";
 
 @theme {
-  /* GridPower Brand Colors */
-  --color-gp-primary: #0891B2;
-  --color-gp-secondary: #22D3EE;
-  --color-gp-cta: #22C55E;
-  --color-gp-cta-hover: #16A34A;
-  --color-gp-red: #FA0015;
+  /* GridPower Brand */
+  --color-gp-red: #FA0016;
+  --color-gp-red-hover: #d90013;
 
-  /* Functional Colors */
-  --color-bg: #FFFFFF;
-  --color-bg-tint: #ECFEFF;
-  --color-fg: #164E63;
-  --color-fg-muted: #4B7A8A;
-  --color-dark: #0F172A;
-  --color-dark-surface: #1E293B;
-  --color-border-light: #E0F2FE;
-  --color-border-dark: #BAE6FD;
+  /* Radix Mauve Gray Scale (light) */
+  --color-mauve-1: #fdfcfd;
+  --color-mauve-2: #faf9fb;
+  --color-mauve-3: #f2eff3;
+  --color-mauve-4: #eae7ec;
+  --color-mauve-5: #e3dfe6;
+  --color-mauve-6: #dbd8e0;
+  --color-mauve-7: #d0cdd7;
+  --color-mauve-8: #bcbac7;
+  --color-mauve-9: #8e8c99;
+  --color-mauve-10: #84828e;
+  --color-mauve-11: #65636d;
+  --color-mauve-12: #211f26;
+
+  /* Dark Mauve Scale */
+  --color-mauve-dark-1: #121113;
+  --color-mauve-dark-2: #1a191b;
+  --color-mauve-dark-3: #232225;
+  --color-mauve-dark-4: #2b292d;
+  --color-mauve-dark-5: #323035;
+  --color-mauve-dark-6: #3c393f;
+  --color-mauve-dark-7: #49474e;
+  --color-mauve-dark-8: #625f69;
+  --color-mauve-dark-9: #6f6d78;
+  --color-mauve-dark-10: #7c7a85;
+  --color-mauve-dark-11: #b5b2bc;
+  --color-mauve-dark-12: #eeeef0;
+
+  /* Semantic aliases */
+  --color-bg: var(--color-mauve-1);
+  --color-bg-subtle: var(--color-mauve-2);
+  --color-bg-tint: var(--color-mauve-3);
+  --color-border: var(--color-mauve-6);
+  --color-border-strong: var(--color-mauve-7);
+  --color-fg: var(--color-mauve-12);
+  --color-fg-muted: var(--color-mauve-11);
+  --color-fg-subtle: var(--color-mauve-9);
+
+  /* Dark surface */
+  --color-dark: var(--color-mauve-dark-1);
+  --color-dark-2: var(--color-mauve-dark-2);
+  --color-dark-3: var(--color-mauve-dark-3);
+  --color-dark-fg: var(--color-mauve-dark-12);
+  --color-dark-fg-muted: var(--color-mauve-dark-11);
+
+  /* Font tokens */
+  --font-sans: "Geist", system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", "Fira Code", monospace;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -32,21 +67,18 @@
   body {
     background: var(--color-bg);
     color: var(--color-fg);
+    font-family: var(--font-sans);
   }
 
   *:focus-visible {
-    outline: 2px solid var(--color-gp-primary);
+    outline: 2px solid var(--color-gp-red);
     outline-offset: 2px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

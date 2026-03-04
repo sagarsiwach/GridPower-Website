@@ -1,35 +1,25 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import { Header } from "@/components/ui/Header";
 import { Footer } from "@/components/ui/Footer";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: "GridPower | The Open Energy Platform",
   description:
-    "Charging, storage, and powertrain -- one open ecosystem. EV charging stations and energy storage systems built on open technology. No vendor lock-in.",
+    "India generates power. We make sure it's never wasted. EV charging, energy storage, and powertrain — one open ecosystem.",
   openGraph: {
     title: "GridPower | The Open Energy Platform",
-    description:
-      "Charging, storage, and powertrain -- one open ecosystem. EV charging stations and energy storage systems built on open technology.",
+    description: "India generates power. We make sure it's never wasted.",
     type: "website",
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={plusJakarta.variable}>
-      <body style={{ fontFamily: "var(--font-plus-jakarta), var(--font-sans)" }}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+      <body>
         <Header />
         {children}
         <Footer />

@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-dark">
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[var(--color-dark)]">
       <div
         className="absolute inset-0 opacity-[0.04]"
         style={{
@@ -14,7 +14,7 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <p className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-gp-secondary">
+        <p className="mb-6 text-xs font-bold uppercase tracking-[0.25em] text-[var(--color-gp-red)]">
           GridPower
         </p>
         <h1 className="text-5xl font-extrabold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl">
@@ -28,7 +28,7 @@ export function Hero() {
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="#solutions"
-            className="inline-flex items-center gap-2 rounded-md bg-gp-cta px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
+            className="inline-flex items-center gap-2 rounded-md bg-[var(--color-gp-red)] px-8 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
           >
             Explore Solutions
             <ArrowRight className="h-4 w-4" />

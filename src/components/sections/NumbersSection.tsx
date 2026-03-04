@@ -6,7 +6,7 @@ const stats = [
 
 export function NumbersSection() {
   return (
-    <section className="bg-dark py-20">
+    <section className="bg-[var(--color-dark)] py-20">
       <div className="mx-auto max-w-5xl px-6">
         <div className="grid gap-12 md:grid-cols-3">
           {stats.map((stat) => (

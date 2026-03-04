@@ -28,7 +28,7 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
         scrolled
-          ? "bg-white/95 backdrop-blur-md border-b border-border-light"
+          ? "bg-white/95 backdrop-blur-md border-b border-[var(--color-border)]"
           : "bg-transparent"
       )}
     >
@@ -37,8 +37,8 @@ export function Header() {
           href="/"
           className="flex items-center gap-0.5 text-xl font-bold tracking-tight cursor-pointer"
         >
-          <span className="text-gp-red">Grid</span>
-          <span className={cn(scrolled ? "text-fg" : "text-white")}>
+          <span className="text-[var(--color-gp-red)]">Grid</span>
+          <span className={cn(scrolled ? "text-[var(--color-fg)]" : "text-white")}>
             Power
           </span>
         </Link>
@@ -51,7 +51,7 @@ export function Header() {
               className={cn(
                 "text-sm font-medium transition-colors duration-200 cursor-pointer",
                 scrolled
-                  ? "text-fg-muted hover:text-fg"
+                  ? "text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
                   : "text-white/70 hover:text-white"
               )}
             >
@@ -60,7 +60,7 @@ export function Header() {
           ))}
           <Link
             href="/contact"
-            className="rounded-md bg-gp-cta px-5 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
+            className="rounded-md bg-[var(--color-gp-red)] px-5 py-2 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
           >
             Talk to Sales
           </Link>
@@ -70,7 +70,7 @@ export function Header() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className={cn(
             "flex h-11 w-11 items-center justify-center rounded-md md:hidden cursor-pointer",
-            scrolled ? "text-fg" : "text-white"
+            scrolled ? "text-[var(--color-fg)]" : "text-white"
           )}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -79,14 +79,14 @@ export function Header() {
       </div>
 
       {mobileOpen && (
-        <div className="border-t border-border-light bg-white px-6 py-6 md:hidden">
+        <div className="border-t border-[var(--color-border)] bg-white px-6 py-6 md:hidden">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-base font-medium text-fg transition-colors duration-200 hover:text-gp-primary cursor-pointer"
+                className="text-base font-medium text-[var(--color-fg)] transition-colors duration-200 hover:text-[var(--color-gp-red)] cursor-pointer"
               >
                 {link.label}
               </Link>
@@ -94,7 +94,7 @@ export function Header() {
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="mt-2 rounded-md bg-gp-cta px-5 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-gp-cta-hover cursor-pointer"
+              className="mt-2 rounded-md bg-[var(--color-gp-red)] px-5 py-3 text-center text-sm font-semibold text-white transition-colors duration-200 hover:bg-[var(--color-gp-red-hover)] cursor-pointer"
             >
               Talk to Sales
             </Link>
